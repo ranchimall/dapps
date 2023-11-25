@@ -75,6 +75,11 @@ a:where([class]):focus-visible {
 
 a {
   color: var(--accent-color);
+  text-decoration: none;
+}
+a:hover {
+  -webkit-text-decoration: underline solid currentColor;
+          text-decoration: underline solid currentColor;
 }
 
 a:-webkit-any-link:focus-visible {
@@ -726,9 +731,6 @@ menu {
   grid-column: 1/-1;
   view-transition-name: main-header;
 }
-#main_header a {
-  text-decoration: none;
-}
 #main_header h4 {
   font-weight: 600;
   color: rgba(var(--text-color), 1);
@@ -820,7 +822,8 @@ theme-toggle {
   display: grid;
   gap: 1rem;
   padding: max(1rem, 1.5vw);
-  background-color: rgba(var(--text-color), 0.06);
+  border: solid thin rgba(var(--text-color), 0.1);
+  background-color: rgba(var(--text-color), 0.02);
   border-radius: 1rem;
 }
 .dapp-card__icon {
