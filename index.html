@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RanchiMall Dapps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body class="hidden">
+    <header id="main_header" class="flex align-center">
+        <a href="#/home">
+            <h4>
+                RanchiMall Dapps
+            </h4>
+        </a>
+        <theme-toggle></theme-toggle>
+    </header>
+    <main id="page_container" class="grid"></main>
+    <script src="scripts/components.min.js"></script>
+    <script src="https://unpkg.com/uhtml@3.0.1/es.js"></script>
+    <script>
+        const { html, svg, render: renderElem } = uhtml;
+        const uiGlobals = {}
+        uiGlobals.connectionErrorNotification = []
+        //Checks for internet connection status
+        if (!navigator.onLine)
+            uiGlobals.connectionErrorNotification.push(notify('There seems to be a problem connecting to the internet, Please check you internet connection.', 'error'))
+        window.addEventListener('offline', () => {
+            uiGlobals.connectionErrorNotification.push(notify('There seems to be a problem connecting to the internet, Please check you internet connection.', 'error'))
+        })
+        window.addEventListener('online', () => {
+            uiGlobals.connectionErrorNotification.forEach(notification => {
+                getRef('notification_drawer').remove(notification)
+            })
+            notify('We are back online.', 'success')
+        })
+        // Use instead of document.getElementById
+        function getRef(elementId) {
+            return document.getElementById(elementId)
+        }
+        let zIndex = 50
+        // function required for popups or modals to appear
+        function openPopup(popupId, pinned) {
+            if (popupStack.peek() === undefined) {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closePopup()
+                    }
+                })
+            }
+            zIndex++
+            getRef(popupId).setAttribute('style', `z-index: ${zIndex}`)
+            return getRef(popupId).show({ pinned })
+        }
+
+        // hides the popup or modal
+        function closePopup(options = {}) {
+            if (popupStack.peek() === undefined)
+                return;
+            popupStack.peek().popup.hide(options)
+        }
+
+        document.addEventListener('popupopened', async e => {
+            switch (e.target.id) {
+
+            }
+        })
+        document.addEventListener('popupclosed', e => {
+            zIndex--
+            switch (e.target.id) {
+            }
+        })
+        //Function for displaying toast notifications. pass in error for mode param if you want to show an error.
+        function notify(message, mode, options = {}) {
+            let icon
+            switch (mode) {
+                case 'success':
+                    icon = `<svg class="icon icon--success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"/></svg>`
+                    break;
+                case 'error':
+                    icon = `<svg class="icon icon--error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm0-8v6h2V7h-2z"/></svg>`
+                    options.pinned = true
+                    break;
+            }
+            if (mode === 'error') {
+                console.error(message)
+            }
+            return getRef("notification_drawer").push(message, { icon, ...options });
+        }
+        // displays a popup for asking permission. Use this instead of JS confirm
+        /**
+        @param {string} title - Title of the popup
+        @param {object} options - Options for the popup 
+        @param {string} options.message - Message to be displayed in the popup
+        @param {string} options.cancelText - Text for the cancel button
+        @param {string} options.confirmText - Text for the confirm button
+        @param {boolean} options.danger - If true, confirm button will be red
+        */
+        const getConfirmation = (title, options = {}) => {
+            return new Promise(resolve => {
+                const { message = '', cancelText = 'Cancel', confirmText = 'OK', danger = false } = options
+                getRef('confirm_title').innerText = title;
+                getRef('confirm_message').innerText = message;
+                const cancelButton = getRef('confirmation_popup').querySelector('.cancel-button');
+                const confirmButton = getRef('confirmation_popup').querySelector('.confirm-button')
+                confirmButton.textContent = confirmText
+                cancelButton.textContent = cancelText
+                if (danger)
+                    confirmButton.classList.add('button--danger')
+                else
+                    confirmButton.classList.remove('button--danger')
+                const { opened, closed } = openPopup('confirmation_popup')
+                confirmButton.onclick = () => {
+                    closePopup({ payload: true })
+                }
+                cancelButton.onclick = () => {
+                    closePopup()
+                }
+                closed.then((payload) => {
+                    confirmButton.onclick = null
+                    cancelButton.onclick = null
+                    if (payload)
+                        resolve(true)
+                    else
+                        resolve(false)
+                })
+            })
+        }
+        function createRipple(event, target) {
+            const circle = document.createElement("span");
+            const diameter = Math.max(target.clientWidth, target.clientHeight);
+            const radius = diameter / 2;
+            const targetDimensions = target.getBoundingClientRect();
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - (targetDimensions.left + radius)}px`;
+            circle.style.top = `${event.clientY - (targetDimensions.top + radius)}px`;
+            circle.classList.add("ripple");
+            const rippleAnimation = circle.animate(
+                [
+                    {
+                        opacity: 1,
+                        transform: `scale(0)`
+                    },
+                    {
+                        transform: "scale(4)",
+                        opacity: 0,
+                    },
+                ],
+                {
+                    duration: 600,
+                    fill: "forwards",
+                    easing: "ease-out",
+                }
+            );
+            target.append(circle);
+            rippleAnimation.onfinish = () => {
+                circle.remove();
+            };
+        }
+        function buttonLoader(id, show) {
+            const button = typeof id === 'string' ? document.getElementById(id) : id;
+            if (!button) return
+            if (!button.dataset.hasOwnProperty('wasDisabled'))
+                button.dataset.wasDisabled = button.disabled
+            const animOptions = {
+                duration: 200,
+                fill: 'forwards',
+                easing: 'ease'
+            }
+            if (show) {
+                button.disabled = true
+                button.parentNode.append(document.createElement('sm-spinner'))
+                button.animate([
+                    {
+                        clipPath: 'circle(100%)',
+                    },
+                    {
+                        clipPath: 'circle(0)',
+                    },
+                ], animOptions)
+            } else {
+                button.disabled = button.dataset.wasDisabled === 'true';
+                button.animate([
+                    {
+                        clipPath: 'circle(0)',
+                    },
+                    {
+                        clipPath: 'circle(100%)',
+                    },
+                ], animOptions).onfinish = (e) => {
+                    button.removeAttribute('data-original-state')
+                }
+                const potentialTarget = button.parentNode.querySelector('sm-spinner')
+                if (potentialTarget) potentialTarget.remove();
+            }
+        }
+        class Router {
+            /**
+             * @constructor {object} options - options for the router
+             * @param {object} options.routes - routes for the router
+             * @param {object} options.state - initial state for the router
+             * @param {function} options.routingStart - function to be called before routing
+             * @param {function} options.routingEnd - function to be called after routing
+             */
+            constructor(options = {}) {
+                const { routes = {}, state = {}, routingStart, routingEnd } = options
+                this.routes = routes
+                this.state = state
+                this.routingStart = routingStart
+                this.routingEnd = routingEnd
+                this.lastPage = null
+                window.addEventListener('hashchange', e => this.routeTo(window.location.hash))
+            }
+            /**
+             * @param {string} route - route to be added
+             * @param {function} callback - function to be called when route is matched
+             */
+            addRoute(route, callback) {
+                this.routes[route] = callback
+            }
+            /**
+             * @param {string} route
+             */
+            handleRouting = async (page) => {
+                if (this.routingStart) {
+                    this.routingStart(this.state)
+                }
+                if (this.routes[page]) {
+                    await this.routes[page](this.state)
+                    this.lastPage = page
+                } else {
+                    if (this.routes['404']) {
+                        this.routes['404'](this.state);
+                    } else {
+                        console.error(`No route found for '${page}' and no '404' route is defined.`);
+                    }
+                }
+                if (this.routingEnd) {
+                    this.routingEnd(this.state)
+                }
+            }
+            async routeTo(destination) {
+                try {
+                    let page
+                    let wildcards = []
+                    let params = {}
+                    let [path, queryString] = destination.split('?');
+                    if (path.includes('#'))
+                        path = path.split('#')[1];
+                    if (path.includes('/'))
+                        [, page, ...wildcards] = path.split('/')
+                    else
+                        page = path
+                    this.state = { page, wildcards, lastPage: this.lastPage, params }
+                    if (queryString) {
+                        params = new URLSearchParams(queryString)
+                        this.state.params = Object.fromEntries(params)
+                    }
+                    if (document.startViewTransition) {
+                        const viewTransition = document.startViewTransition(async () => {
+                            await this.handleRouting(page)
+                        })
+                        this.state.viewTransition = viewTransition
+                    } else {
+                        // Fallback for browsers that don't support View transition API:
+                        await this.handleRouting(page)
+                    }
+                } catch (e) {
+                    console.error(e)
+                }
+            }
+        }
+    </script>
+    <script>
+        const router = new Router({
+            routingStart(state) {
+            },
+            routingEnd(state) {
+                const { page } = state
+                if (!page)
+                    page = 'home'
+            }
+        })
+        window.addEventListener('load', () => {
+            router.routeTo(location.hash)
+            document.body.classList.remove('hidden')
+            document.addEventListener('copy', () => {
+                notify('copied', 'success')
+            })
+            document.addEventListener("pointerdown", (e) => {
+                if (e.target.closest("button:not(:disabled), .interactive:not(:disabled)")) {
+                    createRipple(e, e.target.closest("button, .interactive"));
+                }
+            });
+        })
+        router.addRoute('404', () => {
+            renderElem(getRef('page_container'), html`
+                <h1>Page not found</h1>
+            `)
+        })
+        const dappsList = [
+            {
+                name: 'Messenger',
+                description: 'Chat with your Bitcoin, Ethereum and FLO friends or use Bitcoin and FLO multisig.',
+                icon: ``,
+                appLink: '',
+                moreLink: '#/dapps/messenger'
+            },
+            {
+                name: 'FLO wallet',
+                description: 'A wallet for FLO',
+                icon: ``,
+                appLink: '',
+                moreLink: '#/dapps/flo-wallet'
+            },
+        ]
+        router.addRoute('home', renderHome)
+        router.addRoute('', renderHome)
+        function renderDappCard(dapp) {
+            const { name, description, icon, appLink, moreLink } = dapp;
+            return html`
+                <li class="dapp-card">
+                    <div class="dapp-card__icon">
+                        ${icon}
+                    </div>
+                    <div class="dapp-card__content grid gap-0-5">
+                        <h3 class="dapp-card__title">${name}</h3>
+                        <p class="dapp-card__description">${description}</p>
+                    </div>
+                    <div class="flex gap-0-5 align-center">
+                        <a href=${moreLink} class="button dapp-card__link">
+                            Know more
+                            <svg class="icon margin-left-0-5"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                        </a>
+                        <a href=${appLink} class="button dapp-card__link dapp-card__link--primary" target="_blank">
+                            Check it out
+                            <svg class="icon margin-left-0-5" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0z" fill="none"></path> <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path> </svg>    
+                        </a>
+                    </div>
+                </li>
+            `
+        }
+        function renderHome(state) {
+            const { wildcards: [page], viewTransition } = state
+            getRef('page_container').dataset.page = 'home';
+            const renderedDappsList = dappsList.map((dapp) => renderDappCard(dapp))
+            renderElem(getRef('page_container'), html`
+                <section id="hero_section">
+                    <svg id="hero_section__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="103" viewBox="0 0 50 103" fill="none"> <path d="M49.919 65.4057L12.7647 28.2514V102.56L49.919 65.4057Z" fill="#ABECDB"/> <path d="M49.919 49.0706L0.913757 0.0653687V98.0758L49.919 49.0706Z" fill="#CFF3EA"/> </svg>
+                    <h1>
+                        Discover the world of <br>
+                        exciting new blockchain apps
+                    </h1>
+                </section>
+                <div class="flex align-center space-between gap-1 flex-wrap">
+                    <h4>Our offerings</h4>
+                    <sm-input id="dapp_search_input" type="search" placeholder="Search Dapps" oninput=${searchDapps}>
+                        <svg slot="icon" class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0V0z" fill="none"></path> <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"> </path> </svg>
+                    </sm-input>
+                </div>
+                <ul id="dapp_list">${renderedDappsList}</ul>
+            `)
+            if (!viewTransition) return
+            viewTransition.ready.then(() => {
+                document.documentElement.animate(
+                    [
+                        { transform: 'translateX(0)' },
+                        { transform: 'translateX(1rem)' },
+                    ],
+                    {
+                        duration: 300,
+                        easing: 'ease',
+                        pseudoElement: '::view-transition-old(root)',
+                    }
+                );
+                document.documentElement.animate(
+                    [
+                        { transform: 'translateX(-1rem)' },
+                        { transform: 'translateX(0)' },
+                    ],
+                    {
+                        duration: 300,
+                        easing: 'ease',
+                        pseudoElement: '::view-transition-new(root)',
+                    }
+                );
+            })
+        }
+        function searchDapps() {
+            const searchQuery = getRef('dapp_search_input').value.trim().toLowerCase()
+            const filtered = dappsList.filter(dapp => dapp.name.toLowerCase().includes(searchQuery))
+            if (filtered.length === 0) {
+                renderElem(getRef('dapp_list'), html`
+                    <p>No Dapp related to '${searchQuery}'</p>
+                `)
+            } else {
+                const renderedDappsList = filtered.map((dapp) => renderDappCard(dapp))
+                renderElem(getRef('dapp_list'), html`${renderedDappsList}`)
+            }
+        }
+        router.addRoute('dapps', (state) => {
+            const { wildcards: [page], viewTransition } = state
+            getRef('page_container').dataset.page = 'dapps';
+            switch (page) {
+                case 'messenger':
+                    renderElem(getRef('page_container'), html`
+                        <section class="grid gap-1-5">
+                            <h1>Messenger</h1>
+                            <p>Chat with your Bitcoin, Ethereum and FLO friends or use Bitcoin and FLO multisig.</p>
+                        </section>
+                    `)
+                    break;
+                case 'flo-wallet':
+                    renderElem(getRef('page_container'), html`
+                        <section class="grid gap-1-5">
+                            <h1>FLO wallet</h1>
+                            <p>A wallet for FLO</p>
+                        </section>
+                    `)
+                    break;
+            }
+            if (!viewTransition) return
+            viewTransition.ready.then(() => {
+                document.documentElement.animate(
+                    [
+                        { transform: 'translateX(0)' },
+                        { transform: 'translateX(-1rem)' },
+                    ],
+                    {
+                        duration: 300,
+                        easing: 'ease',
+                        pseudoElement: '::view-transition-old(root)',
+                    }
+                );
+                document.documentElement.animate(
+                    [
+                        { transform: 'translateX(1rem)' },
+                        { transform: 'translateX(0)' },
+                    ],
+                    {
+                        duration: 300,
+                        easing: 'ease',
+                        pseudoElement: '::view-transition-new(root)',
+                    }
+                );
+            })
+        })
+    </script>
+</body>
+
+</html>
