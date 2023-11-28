@@ -720,7 +720,7 @@ theme-toggle {
 }
 #page_container {
   overflow: auto;
-  padding: 1rem;
+  padding: 1rem max(1rem, 3vw);
   gap: 1rem;
   & > * {
     margin: 0 auto;
@@ -773,7 +773,10 @@ theme-toggle {
     object-fit: cover;
     background-color: rgba(var(--text-color), 0.06);
   }
-  .flex {
+  &__title__wrapper {
+    color: rgba(var(--text-color), 1);
+  }
+  & > .flex {
     margin-top: 1rem;
     margin-left: auto;
   }
@@ -787,12 +790,34 @@ theme-toggle {
     }
   }
 }
+#dapps_menu {
+  view-transition-name: dapps-menu;
+}
+.hamburger-menu {
+}
+.hamburger-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(var(--text-color), 0.8);
+  &:hover {
+    background-color: rgba(var(--text-color), 0.06);
+    text-decoration: none;
+  }
+  &--active {
+    background-color: rgba(var(--text-color), 0.06);
+    color: rgba(var(--text-color), 1);
+  }
+}
 @media only screen and (max-width: 640px) {
   .hide-on-small {
     display: none;
   }
   #page_container {
-    &[data-page="home"] {
+    &[data-page="dapps"] {
     }
   }
 }
@@ -802,6 +827,12 @@ theme-toggle {
   }
   .popup__header {
     padding: 1rem 1.5rem 0 1.5rem;
+  }
+  #page_container {
+    &[data-page="dapps"] {
+      display: grid;
+      grid-template-columns: 12rem 1fr;
+    }
   }
 }
 @media only screen and (min-width: 1280px) {
