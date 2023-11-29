@@ -749,13 +749,12 @@ theme-toggle {
   }
 }
 #dapp_search_input {
-  width: min(100%, 20rem);
+  width: 100%;
   --background: transparent;
   border: solid thin rgba(var(--text-color), 0.3);
   border-radius: 0.5rem;
 }
 #category_selector {
-  view-transition-name: category-selector;
   sm-chip {
     text-transform: capitalize;
   }
@@ -898,6 +897,9 @@ theme-toggle {
       display: grid;
       grid-template-columns: 12rem 1fr;
     }
+  }
+  #dapp_search_input {
+    width: 20rem;
   }
 }
 @media only screen and (min-width: 1280px) {
