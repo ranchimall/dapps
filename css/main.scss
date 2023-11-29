@@ -246,8 +246,8 @@ sm-chip {
   --background: rgba(var(--text-color), 0.06);
   user-select: none;
   font-weight: 500;
-  &[selected] {
-    --background: var(--accent-color);
+  &[selected]::part(chip) {
+    background: rgba(var(--text-color), 1);
     color: rgba(var(--background-color), 1);
   }
 }
@@ -754,6 +754,12 @@ theme-toggle {
   border: solid thin rgba(var(--text-color), 0.3);
   border-radius: 0.5rem;
 }
+#category_selector {
+  view-transition-name: category-selector;
+  sm-chip {
+    text-transform: capitalize;
+  }
+}
 #dapp_list {
   display: grid;
   gap: 1rem;
@@ -773,10 +779,19 @@ theme-toggle {
     object-fit: cover;
     background-color: rgba(var(--text-color), 0.06);
   }
+  &__category {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(var(--text-color), 0.8);
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(var(--text-color), 0.06);
+    align-self: flex-start;
+  }
   &__title__wrapper {
     color: rgba(var(--text-color), 1);
   }
-  & > .flex {
+  & > .flex:last-of-type {
     margin-top: 1rem;
     margin-left: auto;
   }
@@ -792,6 +807,10 @@ theme-toggle {
 }
 #dapps_menu {
   view-transition-name: dapps-menu;
+}
+#hamburger_menu_trigger {
+  padding: 0.5rem;
+  margin-left: -0.5rem;
 }
 .hamburger-menu {
 }
@@ -820,8 +839,54 @@ theme-toggle {
     &[data-page="dapps"] {
     }
   }
+  #category_selector {
+    margin-left: -1rem;
+    max-width: initial;
+    width: calc(100% + 2rem);
+    &::part(chips-wrapper) {
+      padding: 0 1rem;
+    }
+  }
+  .hamburger-menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    &.hamburger-menu--open {
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+  }
+  .hamburger-menu {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 4rem);
+    height: 100%;
+    background-color: rgba(var(--foreground-color), 1);
+    padding: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  }
+  .hamburger-menu__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--text-color), 0.1);
+    backdrop-filter: blur(0.5rem);
+  }
 }
 @media only screen and (min-width: 640px) {
+  .hide-on-large {
+    display: none;
+  }
   sm-popup {
     --width: 24rem;
   }
