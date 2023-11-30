@@ -727,7 +727,7 @@ menu {
   align-items: center;
   grid-template-columns: 1fr auto;
   gap: 1rem;
-  padding: max(1rem, 3vw);
+  padding: max(1rem, 2vw) max(1rem, 3vw);
   grid-column: 1/-1;
   view-transition-name: main-header;
 }
@@ -862,23 +862,32 @@ theme-toggle {
   fill: rgba(var(--background-color), 1);
 }
 
-#dapps_menu {
-  view-transition-name: dapps-menu;
-}
-
 #hamburger_menu_trigger {
   padding: 0.5rem;
   margin-left: -0.5rem;
+}
+
+.hamburger-menu-wrapper {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  view-transition-name: dapps-menu;
+}
+
+.hamburger-menu {
+  overflow-y: auto;
 }
 
 .hamburger-menu__item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem;
   border-radius: 0.5rem;
   font-size: 0.9rem;
   color: rgba(var(--text-color), 0.8);
+  margin-left: -0.6rem;
+  font-weight: 500;
 }
 .hamburger-menu__item:hover {
   background-color: rgba(var(--text-color), 0.06);
@@ -954,6 +963,14 @@ theme-toggle {
   }
   #dapp_search_input {
     width: 20rem;
+  }
+  .hamburger-menu-wrapper {
+    border-right: solid thin rgba(var(--text-color), 0.5);
+    padding-right: 1rem;
+  }
+  .hamburger-menu {
+    padding-left: 1rem;
+    margin-left: -1rem;
   }
 }
 @media only screen and (min-width: 1280px) {
