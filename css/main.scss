@@ -748,6 +748,17 @@ theme-toggle {
     font-size: max(3vw, 1.5rem);
   }
 }
+#verification_section {
+  gap: 1rem;
+  padding: max(1rem, 2vw);
+  border-radius: 1rem;
+  border: solid 0.1rem rgba(var(--text-color), 0.1);
+  sm-form {
+    &::part(form) {
+      gap: 0.5rem;
+    }
+  }
+}
 #dapp_search_input {
   width: 100%;
   --background: transparent;
@@ -835,6 +846,23 @@ theme-toggle {
     color: rgba(var(--text-color), 1);
   }
 }
+#download_info_popup {
+  ol {
+    padding: 0 1rem;
+    li {
+      &:not(:last-of-type) {
+        margin-bottom: 0.5rem;
+      }
+      color: rgba(var(--text-color), 0.9);
+      font-size: 0.9rem;
+    }
+  }
+  input[type="checkbox"] {
+    height: 0.9rem;
+    width: 0.9rem;
+    accent-color: var(--accent-color);
+  }
+}
 @media only screen and (max-width: 640px) {
   .hide-on-small {
     display: none;
@@ -901,6 +929,17 @@ theme-toggle {
     &[data-page="dapps"] {
       display: grid;
       grid-template-columns: 12rem 1fr;
+      & > :nth-child(2) {
+        padding: 0 3vw;
+      }
+    }
+  }
+  #verification_section {
+    gap: 1rem 0.5rem;
+    sm-form {
+      &::part(form) {
+        grid-template-columns: 1fr auto;
+      }
     }
   }
   #dapp_search_input {
