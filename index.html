@@ -65,6 +65,7 @@
     </sm-popup>
     <script src="scripts/components.min.js"></script>
     <script src="https://unpkg.com/uhtml@3.0.1/es.js"></script>
+
     <script>
         const { html, svg, render: renderElem } = uhtml;
         const uiGlobals = {}
@@ -118,7 +119,7 @@
             }
         })
         //Function for displaying toast notifications. pass in error for mode param if you want to show an error.
-        function notify(message, mode, options = { timeout, pinned }) {
+        function notify(message, mode, options = {}) {
             let icon
             switch (mode) {
                 case 'success':
@@ -335,7 +336,7 @@
                         const { hash: knownHash, appLink } = elem.closest('.dapp-card').dataset;
                         getRepoHash(appLink.split('/').pop()).then(latestHash => {
                             if (latestHash !== knownHash) {
-                                notify(`The dapp you are trying to download has been modified. Dapp won't be downloaded.`, 'error')
+                                notify(`The dapp you are trying to download has failed integrity check. Dapp won't be downloaded.`, 'error')
                             } else {
                                 if (preventDownloadInfoPopup === null || preventDownloadInfoPopup === 'false')
                                     openPopup('download_info_popup')
@@ -387,7 +388,7 @@
                     "borrow"
                 ],
                 "category": "finance",
-                "hash": "197f0c491e8cabf866603d03c437f9b96ad5b58ce55de2f6bc0d39a633fdf5e1"
+                "hash": "197f0c491e8cabf866603d03c437f9b96ad5b58ce55de2f6bc0d39a633fdf5e2"
             },
             {
                 "name": "BTC Wallet",
@@ -609,6 +610,9 @@
                         <p class="dapp-card__description">${description}</p>
                     </div>
                     <div class="flex gap-0-5 align-center flex-wrap">
+                        <button class="button dapp-card__link" onclick=${checkIntegrity}>
+                            Check integrity
+                        </button>
                         <a href=${`https://github.com/ranchimall/${appLink.split('/').pop()}/archive/refs/heads/master.zip`} class="button dapp-card__link dapp-download-button" title="Download dapp Zip">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>
                         </a>
@@ -619,6 +623,41 @@
                     </div>
                 </li>
             `
+        }
+        function pseudoDisable(element, disable) {
+            if (disable) {
+                element.dataset.disabled = true
+                element.style.pointerEvents = 'none'
+                element.tabIndex = -1
+            } else {
+                delete element.dataset.disabled
+                element.style.pointerEvents = 'auto'
+                element.tabIndex = 0
+            }
+        }
+        function checkIntegrity(e) {
+            const dappCard = e.target.closest('.dapp-card')
+            const { hash: knownHash, appLink } = dappCard.dataset;
+            pseudoDisable(e.target, true)
+            renderElem(e.target, html`Checking...<sm-spinner></sm-spinner>`)
+            getRepoHash(appLink.split('/').pop()).then(latestHash => {
+                if (latestHash !== knownHash) {
+                    notify(`The dapp has failed integrity check. Dapp won't be allowed to use.`, 'error')
+                    renderElem(e.target.closest('.flex'), html`
+                        <strong style="color: var(--danger-color)">Failed integrity check</strong>
+                    `)
+                } else {
+                    notify(`The dapp has passed integrity check. Dapp can be used safely.`, 'success')
+                    renderElem(e.target, html`Check integrity`)
+                    pseudoDisable(e.target, false)
+                }
+            }).catch(e => {
+                pseudoDisable(e.target, false)
+                console.error(e)
+                notify('There was an error while checking integrity. Please try again later.', 'error', {
+                    timeout: 10000,
+                })
+            })
         }
         function renderHome(state) {
             const { params: { category = 'all', query = '' }, page, viewTransition, lastPage } = state
@@ -688,6 +727,37 @@
                         pseudoElement: '::view-transition-new(root)',
                     }
                 );
+            })
+        }
+        function downloadAllDapps() {
+            // const downloadAllButton = getRef('download_all_button')
+            // const downloadAllButtonContent = downloadAllButton.innerHTML
+            // downloadAllButton.innerHTML = 'Downloading...<sm-spinner></sm-spinner>'
+            // downloadAllButton.disabled = true
+            const verificationPromises = dappsList.map(({ appLink }) => {
+                return new Promise((resolve, reject) => {
+                    const appRepoName = appLink.split('/').pop()
+                    getRepoHash(appRepoName).then(latestHash => {
+                        const { hash: knownHash } = dappsList.find(dapp => dapp.appLink === appLink)
+                        if (latestHash !== knownHash) {
+                            notify(`The dapp '${appRepoName}' has failed integrity check. Dapp won't be downloaded.`, 'error')
+                            reject()
+                        } else {
+                            resolve(`https://github.com/ranchimall/${appRepoName}/archive/refs/heads/master.zip`)
+                        }
+                    }).catch(e => {
+                        console.error(e)
+                        notify('There was an error while trying to download the dapp. Please try again later.', 'error', {
+                            timeout: 10000,
+                        })
+                        reject()
+                    })
+                })
+            })
+            Promise.allSettled(verificationPromises).then(downloadLinks => {
+                downloadLinks = downloadLinks.filter(({ status }) => status === 'fulfilled').map(({ value }) => value)
+                // pack and download all dapps
+                const zip = new JSZip();
             })
         }
         function verifyLink() {
