@@ -34,6 +34,7 @@
     <sm-popup id="download_info_popup">
         <div class="grid gap-1-5">
             <h2>
+                Integrity check passed. <br>
                 Starting download...
             </h2>
             <div class="grid gap-1">
@@ -62,6 +63,21 @@
                 </button>
             </div>
         </div>
+    </sm-popup>
+    <sm-popup id="integrity_check_popup">
+        <header slot="header" class="popup__header">
+            <div class="flex align-center">
+                <button class="popup__header__close" onclick="closePopup()">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#000000">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+        <div id="integrity_check_popup__content" class="grid gap-1-5"></div>
     </sm-popup>
     <script src="scripts/components.min.js"></script>
     <script src="https://unpkg.com/uhtml@3.0.1/es.js"></script>
@@ -332,7 +348,7 @@
                     elem.onclick = (e) => {
                         e.preventDefault()
                         // check dapp hash before downloading and show error if hash doesn't match
-                        const { hash: knownHash, appLink } = elem.closest('.dapp-card').dataset;
+                        const { repoHash: knownHash, appLink } = elem.closest('.dapp-card').dataset;
                         getRepoHash(appLink.split('/').pop()).then(latestHash => {
                             if (latestHash !== knownHash) {
                                 notify(`The dapp you are trying to download has failed integrity check. Dapp won't be downloaded.`, 'error')
@@ -387,7 +403,8 @@
                     "borrow"
                 ],
                 "category": "finance",
-                "hash": "197f0c491e8cabf866603d03c437f9b96ad5b58ce55de2f6bc0d39a633fdf5e1"
+                "repoHash": "197f0c491e8cabf866603d03c437f9b96ad5b58ce55de2f6bc0d39a633fdf5e1",
+                "appHash": "8a0cc53e479a1c7fb205b38d53a61b670f1b809c82ef1e5bcfddb39b5488d473"
             },
             {
                 "name": "BTC Wallet",
@@ -400,7 +417,8 @@
                     "wallet"
                 ],
                 "category": "wallet",
-                "hash": "20f12011d57e157e24b6388b3bb5d7f5970880babe99947dcf50749e08299cc0"
+                "repoHash": "15908cd7e375d577132d22309a8d85f801dcb9c6b838ddc8ee2d6da590c6a0fc",
+                "appHash": "37d7002211272d841b93803c69e79351758bc89c348167805b216ecfd85a5289"
             },
             {
                 "name": "Certify",
@@ -414,7 +432,8 @@
                     "certification"
                 ],
                 "category": "identity",
-                "hash": "99f2b66dcd62b2156b4f64cd4eab8a4efc182284fe13cdb8e2a9876d865c0123"
+                "repoHash": "99f2b66dcd62b2156b4f64cd4eab8a4efc182284fe13cdb8e2a9876d865c0123",
+                "appHash": "563a97cc5be968d5ffc1511925766bc624df5ae3f71dca5ef48a5030ebe3b5ba"
             },
             {
                 "name": "Content Collaboration",
@@ -428,7 +447,8 @@
                     "content"
                 ],
                 "category": "content",
-                "hash": "debdda5bd18f0f4d06876967de5f6dd55f514b9048ec978d435acdbe720a5ff8"
+                "repoHash": "debdda5bd18f0f4d06876967de5f6dd55f514b9048ec978d435acdbe720a5ff8",
+                "appHash": "78834ea328f5f3ed247c76cf92086f711dc7e56a14d2e4548d7ef36f358d3380"
             },
             {
                 "name": "Exchange",
@@ -443,7 +463,8 @@
                     "rupee"
                 ],
                 "category": "finance",
-                "hash": "a5dbba6043d82ae04e99a8a522f4ab2d1ba2a2779cdcf4f28c1da2b2acf11df6"
+                "repoHash": "a5dbba6043d82ae04e99a8a522f4ab2d1ba2a2779cdcf4f28c1da2b2acf11df6",
+                "appHash": "1af17ee38d4b6c7c0ae4ca08fe526899c05fe56074ccac633183e400e039c9f2"
             },
             {
                 "name": "FLO Ethereum",
@@ -457,7 +478,8 @@
                     "flo"
                 ],
                 "category": "wallet",
-                "hash": "6e647729eb0f179045f764d08c44d61178bb84e36e327d026c34a701a9875132"
+                "repoHash": "6e647729eb0f179045f764d08c44d61178bb84e36e327d026c34a701a9875132",
+                "appHash": "2f55bd07e27cf2e869854b41883b733b9cd6eb6e4809f6a92e66d62d747a2f91"
             },
             {
                 "name": "FLO Scout",
@@ -471,7 +493,8 @@
                     "smart contracts"
                 ],
                 "category": "blockchain-explorer",
-                "hash": "cb84c51f35d03e224b4a76d1a27dd19a75f4ac9b785e059696c16206557cfee3"
+                "repoHash": "cb84c51f35d03e224b4a76d1a27dd19a75f4ac9b785e059696c16206557cfee3",
+                "appHash": "0d81003141a2b586bd2272a64341e118b70746da35ef7d66662c282173c1752e"
             },
             {
                 "name": "FLO Wallet",
@@ -484,7 +507,8 @@
                     "wallet"
                 ],
                 "category": "wallet",
-                "hash": "a6ba8112b57a033cc0124aa3f1761e27b2066226b6604d035e8596d2c662b6b6"
+                "repoHash": "a6ba8112b57a033cc0124aa3f1761e27b2066226b6604d035e8596d2c662b6b6",
+                "appHash": "b1ec2cca4c2e083dc9154608224d9b254fb9c4635743b59ccec6363828ca8a39"
             },
             {
                 "name": "FLOpay",
@@ -498,7 +522,8 @@
                     "rupee"
                 ],
                 "category": "wallet",
-                "hash": "8cc4313d43468138f26cf13a776876fc21560714d8e5eb1217599af585105a8f"
+                "repoHash": "8cc4313d43468138f26cf13a776876fc21560714d8e5eb1217599af585105a8f",
+                "appHash": "255b4d1c89974fdd59463d92e84cf8fee3d095be9f1e17f6ff8e1ee52bc24a58"
             },
             {
                 "name": "KYC",
@@ -511,7 +536,8 @@
                     "identity"
                 ],
                 "category": "identity",
-                "hash": "247423654e501dab943296ab9a55e60bf4204164aee469f401cecf0b53290671"
+                "repoHash": "247423654e501dab943296ab9a55e60bf4204164aee469f401cecf0b53290671",
+                "appHash": "4d683316fdc512b375bfc529d5a9aa7eb291ade7460bdf080db6450dc3fb430e"
             },
             {
                 "name": "LogSheet",
@@ -525,7 +551,8 @@
                     "logsheets"
                 ],
                 "category": "content",
-                "hash": "5c04711bbeaede85010e26d281a0a246a6f7f104e07a7bfcc5bc5208908647b6"
+                "repoHash": "5c04711bbeaede85010e26d281a0a246a6f7f104e07a7bfcc5bc5208908647b6",
+                "appHash": "1650c9888e9b418507d41af3ba76ee14753cfa0faa4f9753dff46fcd2a44047d"
             },
             {
                 "name": "Messenger",
@@ -542,7 +569,8 @@
                     "multisig"
                 ],
                 "category": "social",
-                "hash": "8713c516c826f10a5258a0962c87e3a26bd54f25d9034d7d2b7dbb7a33e4e914"
+                "repoHash": "8713c516c826f10a5258a0962c87e3a26bd54f25d9034d7d2b7dbb7a33e4e914",
+                "appHash": "188174ab439516d25fe3ba30b18ca7fae07277f97c6df019331b8300d1f68c14"
             },
             {
                 "name": "RanchiMall Times",
@@ -556,7 +584,8 @@
                     "content"
                 ],
                 "category": "content",
-                "hash": "840823abe525a8be560d58e45af2499de6f45eaf973ce69a500b1df31ca295be"
+                "repoHash": "840823abe525a8be560d58e45af2499de6f45eaf973ce69a500b1df31ca295be",
+                "appHash": "d63d7fbd5ba8795977a30178ee426705ec41f58ce26a5fd0c6e281492a012766"
             },
             {
                 "name": "RIBC",
@@ -570,7 +599,8 @@
                     "ribc"
                 ],
                 "category": "management",
-                "hash": "9e0e44c5d50d7a0f28fb0f8ac4a168b5a1ec93a6e29e41503e1a6a579c567ed8"
+                "repoHash": "9e0e44c5d50d7a0f28fb0f8ac4a168b5a1ec93a6e29e41503e1a6a579c567ed8",
+                "appHash": "ad5145d8526868fe5358ce00d64fc98b1f3f2b02b5e2ee482ef7068a044055ef"
             },
             {
                 "name": "Taproot wallet",
@@ -584,15 +614,64 @@
                     "taproot"
                 ],
                 "category": "wallet",
-                "hash": "592bdad38e1b45e41247f054de33b9d71c58d4178d70ca03c22f1def7c97e2c0"
+                "repoHash": "592bdad38e1b45e41247f054de33b9d71c58d4178d70ca03c22f1def7c97e2c0",
+                "appHash": "ecad64071b9c4026e94d4e57e76ade152b63f2619d44025f6a7f4f9f31184bc2"
+            },
+            {
+                "name": "Blockchain Bonds",
+                "description": "Monitor Bitcoin bonds performance",
+                "icon": "",
+                "appLink": "https://ranchimall.github.io/blockchainbonds",
+                "moreLink": "#/dapps/blockchain-bonds",
+                "tags": [
+                    "bitcoin",
+                    "bonds",
+                    "blockchain"
+                ],
+                "category": "finance",
+                "appHash": "5a8795102c2914a2bbf7c4755de288062e1fddfdfa9eef22a52b8f86f92e3fb3",
+                "repoHash": "661ebe8b28bcf0a14ffe3a485e44dbc65cceab77d1de3bf8f6b2bccfdb1d57b5"
+            },
+            {
+                "name": "Bob's Fund",
+                "description": "A 20 year Bitcoin fund with 100% profit sharing",
+                "icon": "",
+                "appLink": "https://ranchimall.github.io/bobsfund",
+                "moreLink": "#/dapps/bobs-fund",
+                "tags": [
+                    "fund",
+                    "bobs",
+                    "bitcoin"
+                ],
+                "category": "finance",
+                "appHash": "012c2ef05a0d2d0d551b068cad4aadc2a80c1019d741110f4f94da1bae742825",
+                "repoHash": "b5b466e8b3e818ad8c95710edc9a770e4964b0ed74cb32366edec646a8f3372d"
+            },
+            {
+                "name": "Blockbook",
+                "description": "A blockchain explorer for FLO",
+                "icon": "",
+                "appLink": "https://blockbook.ranchimall.net/",
+                "moreLink": "#/dapps/blockbook",
+                "tags": [
+                    "blockbook",
+                    "flo",
+                    "blockchain"
+                ],
+                "category": "blockchain-explorer",
+                "allowDownload": false,
+                "appHash": "012cd0b6bcb6de664cdecfb93bbdeb4bce53497bf549917dc717ef8b8d35858d",
+                "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
+                "repoLink": "https://github.com/ranchimall/blockbook"
             }
         ].sort((a, b) => a.name.localeCompare(b.name));
+
         router.addRoute('home', renderHome)
         router.addRoute('', renderHome)
         function renderDappCard(dapp) {
-            const { name, description, icon, appLink, moreLink, tags, category, hash } = dapp;
+            const { name, description, icon, appLink, moreLink, tags, category, repoHash, allowDownload = true } = dapp;
             return html`
-                <li class="dapp-card" .dataset=${{ appLink, hash }}>
+                <li class="dapp-card" .dataset=${{ appLink, repoHash }}>
                     <div class="flex space-between">
                         <div class="dapp-card__icon">
                             ${icon}
@@ -609,12 +688,13 @@
                         <p class="dapp-card__description">${description}</p>
                     </div>
                     <div class="flex gap-0-5 align-center flex-wrap">
-                        <button class="button dapp-card__link" onclick=${checkIntegrity}>
+                        <button class="button dapp-card__link" onclick=${(e) => checkIntegrity(appLink, e)}>
                             Check integrity
                         </button>
-                        <a href=${`https://github.com/ranchimall/${appLink.split('/').pop()}/archive/refs/heads/master.zip`} class="button dapp-card__link dapp-download-button" title="Download dapp Zip">
-                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>
-                        </a>
+                        ${allowDownload ? html`
+                            <a href=${`https://github.com/ranchimall/${appLink.split('/').pop()}/archive/refs/heads/master.zip`} class="button dapp-card__link dapp-download-button" title="Download dapp Zip">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>
+                            </a>`: ''}
                         <a href=${appLink} class="button dapp-card__link dapp-card__link--primary" target="_blank">
                             Try it
                             <svg class="icon margin-left-0-5" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0z" fill="none"></path> <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path> </svg>    
@@ -629,34 +709,78 @@
                 element.style.pointerEvents = 'none'
                 element.tabIndex = -1
             } else {
+                if (!element)
+                    return
                 delete element.dataset.disabled
                 element.style.pointerEvents = 'auto'
                 element.tabIndex = 0
             }
         }
-        function checkIntegrity(e) {
-            const dappCard = e.target.closest('.dapp-card')
-            const { hash: knownHash, appLink } = dappCard.dataset;
-            pseudoDisable(e.target, true)
-            renderElem(e.target, html`Checking...<sm-spinner></sm-spinner>`)
-            getRepoHash(appLink.split('/').pop()).then(latestHash => {
-                if (latestHash !== knownHash) {
-                    notify(`The dapp has failed integrity check. Dapp won't be allowed to use.`, 'error')
+        async function checkIntegrity(appLink, e) {
+            try {
+                if (!appLink) return console.error('appLink not provided')
+                renderElem(getRef('integrity_check_popup__content'), html`
+                    <div class="flex gap-0-5 align-center">     
+                        <sm-spinner></sm-spinner>
+                        <h4>Checking integrity...</h4>
+                    </div>
+                `)
+                openPopup('integrity_check_popup')
+                pseudoDisable(e.target, true)
+                renderElem(e.target, html`Checking...`)
+                const { hasValidHash, knownHash, latestHash } = await hasAKnownHash(appLink)
+                const hashes = html`
+                    <div class="flex flex-direction-column gap-1">
+                        <div class="flex flex-direction-column gap-0-3">
+                            <h4>Authorized hash</h4>
+                            <sm-copy value=${knownHash}><p>${knownHash}</p></sm-copy>
+                        </div>
+                        <div class="flex flex-direction-column gap-0-3">
+                            <h4>Latest hash</h4>
+                            <sm-copy value=${latestHash}><p>${latestHash}</p></sm-copy>
+                        </div>
+                    </div>
+                `;
+                let dappActions
+                if (e.target) {
+                    dappActions = e.target.parentNode.cloneNode(true)
+                    dappActions.firstElementChild.remove()
+                }
+                if (!hasValidHash) {
                     renderElem(e.target.closest('.flex'), html`
                         <strong style="color: var(--danger-color)">Failed integrity check</strong>
                     `)
                 } else {
-                    notify(`The dapp has passed integrity check. Dapp can be used safely.`, 'success')
+                    renderElem(getRef('integrity_check_popup__content'), html`
+                        <div class="flex flex-direction-column gap-0-5">
+                            <svg class="icon icon--big icon--danger" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                            <h2 style="color: var(--danger-color)">Failed integrity check</h2>
+                        </div>
+                        <p>
+                            The dapp has failed integrity check. Please don't use it.
+                        </p>
+                        ${hashes}
+                    `)
+                    renderElem(getRef('integrity_check_popup__content'), html`
+                        <div class="flex flex-direction-column gap-0-5">
+                            <svg class="icon icon--big icon--green" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M23,12l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,12l2.44,2.79l-0.34,3.7 l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,12z M10.09,16.72l-3.8-3.81l1.48-1.48l2.32,2.33 l5.85-5.87l1.48,1.48L10.09,16.72z"/></g></svg>
+                            <h2 style="color: var(--success-color)">Passed integrity check</h2>
+                        </div>
+                        <p>
+                            The dapp has passed integrity check. You can use it safely.
+                        </p>
+                        ${hashes}
+                        ${dappActions}
+                    `)
                     renderElem(e.target, html`Check integrity`)
                     pseudoDisable(e.target, false)
                 }
-            }).catch(e => {
-                pseudoDisable(e.target, false)
+            } catch (e) {
                 console.error(e)
                 notify('There was an error while checking integrity. Please try again later.', 'error', {
                     timeout: 10000,
                 })
-            })
+            }
         }
         function renderHome(state) {
             const { params: { category = 'all', query = '' }, page, viewTransition, lastPage } = state
@@ -672,22 +796,30 @@
                     </h1>
                 </section>
                 <section id="verification_section" class="grid">
-                    <h4> 
-                        Always verify links before entering your private keys
-                    </h4>
+                    <div class="flex align-center gap-0-5">
+                        <svg class="icon" style="fill: var(--yellow)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+                        <h4> 
+                            Always verify links before entering your private keys
+                        </h4>
+                    </div>
                     <sm-form id="verification_form" oninvalid=${removeInvalidLinkResult} skip-submit>
                         <sm-input id="link_verification__input" class="flex-1" placeholder="Enter a link to verify" style="min-width: 16rem" required></sm-input>
-                        <button class="button button--colored" onclick=${verifyLink} type="submit">
-                            Verify link
-                        </button>
+                        <div class="multi-state-button">
+                            <button class="button button--colored h-100" onclick=${verifyLink} type="submit">
+                                Verify link
+                            </button>
+                        </div>
                     </sm-form>
                 </section>
                 </ul>
-                <div class="flex align-center space-between gap-1 flex-wrap">
+                <div class="flex align-center gap-1 flex-wrap">
                     <h4>Our offerings</h4>
                     <sm-input id="dapp_search_input" type="search" placeholder="Search Dapps" oninput=${searchDapps} value=${query}>
                         <svg slot="icon" class="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0V0z" fill="none"></path> <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"> </path> </svg>
                     </sm-input>
+                    <button id="download_all_button" class="button button--colored margin-left-auto" onclick=${downloadAllDapps}>
+                        Download all
+                    </button>
                 </div>
                 <sm-chips id="category_selector" onchange=${handleFilterCategory}>
                     ${['all', 'blockchain-explorer', 'content', 'finance', 'identity', 'management', 'social', 'wallet'].map((value, index) => html`
@@ -728,21 +860,21 @@
                 );
             })
         }
-        function downloadAllDapps() {
-            // const downloadAllButton = getRef('download_all_button')
-            // const downloadAllButtonContent = downloadAllButton.innerHTML
-            // downloadAllButton.innerHTML = 'Downloading...<sm-spinner></sm-spinner>'
-            // downloadAllButton.disabled = true
+        async function downloadAllDapps() {
+            const downloadAllButton = getRef('download_all_button')
+            const downloadAllButtonContent = downloadAllButton.innerHTML
+            downloadAllButton.innerHTML = 'Downloading...<sm-spinner></sm-spinner>'
+            pseudoDisable(downloadAllButton, true)
             const verificationPromises = dappsList.map(({ appLink }) => {
                 return new Promise((resolve, reject) => {
                     const appRepoName = appLink.split('/').pop()
                     getRepoHash(appRepoName).then(latestHash => {
-                        const { hash: knownHash } = dappsList.find(dapp => dapp.appLink === appLink)
+                        const { repoHash: knownHash } = dappsList.find(dapp => dapp.appLink === appLink)
                         if (latestHash !== knownHash) {
                             notify(`The dapp '${appRepoName}' has failed integrity check. Dapp won't be downloaded.`, 'error')
                             reject()
                         } else {
-                            resolve(`https://github.com/ranchimall/${appRepoName}/archive/refs/heads/master.zip`)
+                            resolve(`https://github.com/ranchimall/${appRepoName}`)
                         }
                     }).catch(e => {
                         console.error(e)
@@ -753,43 +885,127 @@
                     })
                 })
             })
-            Promise.allSettled(verificationPromises).then(downloadLinks => {
+            try {
+                let downloadLinks = await Promise.allSettled(verificationPromises)
                 downloadLinks = downloadLinks.filter(({ status }) => status === 'fulfilled').map(({ value }) => value)
-                // pack and download all dapps
-                const zip = new JSZip();
-            })
-        }
-        function verifyLink() {
-            const linkToVerify = getRef('link_verification__input').value.trim();
-            if (linkToVerify === '')
-                return notify('Please enter a link to verify', 'error', {
-                    timeout: 5000
+                await downloadReposZipped(downloadLinks)
+                notify('All verified dapps have been downloaded', 'success')
+            } catch (e) {
+                console.error(e)
+                notify('There was an error while trying to download the dapps. Please try again later.', 'error', {
+                    timeout: 10000,
                 })
-            const linkIsHostedCorrectly = linkToVerify.startsWith('https://ranchimall.github.io/')
-            const linkIsAuthorized = dappsList.some(({ appLink }) => linkToVerify.includes(appLink))
-            removeInvalidLinkResult()
-            if (linkIsHostedCorrectly && linkIsAuthorized) {
-                getRef('verification_form').after(html.node/*html*/`
-                    <div class="flex align-center gap-0-5">
-                        <svg class="icon" style="fill: var(--green)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M23,11.99l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,11.99l2.44,2.79 l-0.34,3.7l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,11.99z M19.05,13.47l-0.56,0.65l0.08,0.85 l0.18,1.95l-1.9,0.43l-0.84,0.19l-0.44,0.74l-0.99,1.68l-1.78-0.77L12,18.85l-0.79,0.34l-1.78,0.77l-0.99-1.67l-0.44-0.74 l-0.84-0.19l-1.9-0.43l0.18-1.96l0.08-0.85l-0.56-0.65l-1.29-1.47l1.29-1.48l0.56-0.65L5.43,9.01L5.25,7.07l1.9-0.43l0.84-0.19 l0.44-0.74l0.99-1.68l1.78,0.77L12,5.14l0.79-0.34l1.78-0.77l0.99,1.68l0.44,0.74l0.84,0.19l1.9,0.43l-0.18,1.95l-0.08,0.85 l0.56,0.65l1.29,1.47L19.05,13.47z"/><polygon points="10.09,13.75 7.77,11.42 6.29,12.91 10.09,16.72 17.43,9.36 15.95,7.87"/></g></g></svg>
-                        <h4>Yay!</h4>
+            } finally {
+                downloadAllButton.innerHTML = downloadAllButtonContent
+                pseudoDisable(downloadAllButton, false)
+            }
+        }
+        function addProtocolToUrl(url) {
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+            }
+            return url;
+        }
+        function parseUrlWithoutHashAndQuery(fullUrl) {
+            fullUrl = addProtocolToUrl(fullUrl);
+            const parsedUrl = new URL(fullUrl);
+
+            // Set the hash and search/query to empty strings
+            parsedUrl.hash = '';
+            parsedUrl.search = '';
+
+            // Reconstruct the URL without hash and query
+            const urlWithoutHashAndQuery = parsedUrl.toString();
+
+            return urlWithoutHashAndQuery;
+        }
+        async function hasAKnownHash(linkToVerify) {
+            try {
+                linkToVerify = addProtocolToUrl(linkToVerify);
+                linkToVerify = parseUrlWithoutHashAndQuery(linkToVerify)
+                let knownHash, hasValidHash
+                const dappInfo = dappsList.find(({ appLink }) => linkToVerify.includes(appLink))
+                if (!dappInfo) return false
+                if (linkToVerify.includes('https://blockbook.ranchimall.net')) {
+                    // blockbook is special case
+                    // it is a server side rendered app
+                    // so we need to check the hash of the repo
+                    // and not the hash of the link content
+                    latestHash = await getRepoHash('blockbook')
+                    knownHash = dappInfo.repoHash
+                } else {
+                    latestHash = await getLinkContentHash(linkToVerify)
+                    latestHash = latestHash[linkToVerify]
+                    knownHash = dappInfo.appHash
+                }
+                return { hasValidHash: latestHash === knownHash, latestHash, knownHash }
+            } catch (e) {
+                console.error(e)
+                return false
+            }
+        }
+        async function verifyLink(e) {
+            try {
+                let linkToVerify = getRef('link_verification__input').value.trim();
+                if (linkToVerify === '')
+                    return notify('Please enter a link to verify', 'error', {
+                        timeout: 5000
+                    })
+                linkToVerify = parseUrlWithoutHashAndQuery(linkToVerify)
+                buttonLoader(e.target, true)
+                const linkIsAuthorized = dappsList.some(({ appLink }) => linkToVerify.includes(appLink))
+                removeInvalidLinkResult()
+                let verification = linkIsAuthorized
+                let latestHash, knownHash
+                if (verification) {
+                    const result = await hasAKnownHash(linkToVerify)
+                    latestHash = result.latestHash
+                    knownHash = result.knownHash
+                    verification = verification && result.hasValidHash
+                }
+                const hashes = latestHash && knownHash && html`
+                    <div class="flex flex-direction-column gap-1">
+                        <div class="flex flex-direction-column gap-0-3">
+                            <h4>Authorized hash</h4>
+                            <sm-copy value=${knownHash}><p>${knownHash}</p></sm-copy>
+                        </div>
+                        <div class="flex flex-direction-column gap-0-3">
+                            <h4>Latest hash</h4>
+                            <sm-copy value=${latestHash}><p>${latestHash}</p></sm-copy>
+                        </div>
+                    </div>
+                `;
+                if (verification) {
+                    getRef('verification_form').after(html.node/*html*/`
+                        <div class="flex align-center gap-0-5">
+                            <svg class="icon" style="fill: var(--green)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M23,11.99l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,11.99l2.44,2.79 l-0.34,3.7l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,11.99z M19.05,13.47l-0.56,0.65l0.08,0.85 l0.18,1.95l-1.9,0.43l-0.84,0.19l-0.44,0.74l-0.99,1.68l-1.78-0.77L12,18.85l-0.79,0.34l-1.78,0.77l-0.99-1.67l-0.44-0.74 l-0.84-0.19l-1.9-0.43l0.18-1.96l0.08-0.85l-0.56-0.65l-1.29-1.47l1.29-1.48l0.56-0.65L5.43,9.01L5.25,7.07l1.9-0.43l0.84-0.19 l0.44-0.74l0.99-1.68l1.78,0.77L12,5.14l0.79-0.34l1.78-0.77l0.99,1.68l0.44,0.74l0.84,0.19l1.9,0.43l-0.18,1.95l-0.08,0.85 l0.56,0.65l1.29,1.47L19.05,13.47z"/><polygon points="10.09,13.75 7.77,11.42 6.29,12.91 10.09,16.72 17.43,9.36 15.95,7.87"/></g></g></svg>
+                            <h4>Yay!</h4>
+                        </div>
                         <p>The link you provided is genuine</p>
-                    </div>
-                `)
-            } else {
-                getRef('verification_form').after(html.node/*html*/`
-                    <div class="flex align-center gap-0-5">
-                        <svg class="icon" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M15.73,3H8.27L3,8.27v7.46L8.27,21h7.46L21,15.73V8.27L15.73,3z M19,14.9L14.9,19H9.1L5,14.9V9.1L9.1,5h5.8L19,9.1V14.9z M14.83,7.76L12,10.59L9.17,7.76L7.76,9.17L10.59,12l-2.83,2.83l1.41,1.41L12,13.41l2.83,2.83l1.41-1.41L13.41,12l2.83-2.83 L14.83,7.76z"/></g></svg>
-                        <h4>Danger!</h4>
+                        ${hashes}
+                    `)
+                } else {
+                    getRef('verification_form').after(html.node/*html*/`
+                        <div class="flex align-center gap-0-5">
+                            <svg class="icon" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M15.73,3H8.27L3,8.27v7.46L8.27,21h7.46L21,15.73V8.27L15.73,3z M19,14.9L14.9,19H9.1L5,14.9V9.1L9.1,5h5.8L19,9.1V14.9z M14.83,7.76L12,10.59L9.17,7.76L7.76,9.17L10.59,12l-2.83,2.83l1.41,1.41L12,13.41l2.83,2.83l1.41-1.41L13.41,12l2.83-2.83 L14.83,7.76z"/></g></svg>
+                            <h4>Danger!</h4>
+                        </div>
                         <p>Link you provided is not genuine</p>
-                    </div>
-                `)
+                        ${hashes}
+                    `)
+                }
+            } catch (e) {
+                console.error(e)
+                notify(e.message, 'error', {
+                    timeout: 10000,
+                })
+            } finally {
+                buttonLoader(e.target, false)
             }
         }
         function removeInvalidLinkResult() {
-            if (getRef('verification_form').nextElementSibling) {
+            while (getRef('verification_form').nextElementSibling)
                 getRef('verification_form').nextElementSibling.remove()
-            }
         }
         function handleFilterCategory(e) {
             const query = getRef('dapp_search_input')?.value.trim().toLowerCase() || '';
@@ -836,7 +1052,7 @@
         router.addRoute('dapps', (state) => {
             const { wildcards: [page], viewTransition } = state;
             getRef('page_container').dataset.page = 'dapps';
-            const { name, description, icon, appLink, moreLink } = dappsList.find(dapp => dapp.moreLink.includes(page));
+            const { name, description, icon, appLink, moreLink, allowDownload = true } = dappsList.find(dapp => dapp.moreLink.includes(page));
             closeHamburgerMenu()
             let dappPage = [
                 appHamburgerMenu(page),
@@ -854,10 +1070,15 @@
                         </div>
                         <p>${description}</p>
                         <div class="flex align-center gap-0-5">
-                            <a href=${`https://github.com/ranchimall/${appLink.split('/').pop()}/archive/refs/heads/master.zip`} class="button dapp-card__link dapp-download-button" title="Download dapp Zip">
-                                Download
-                                <svg class="icon margin-left-0-5" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>
-                            </a>
+                            <button class="button dapp-card__link" onclick=${(e) => checkIntegrity(appLink, e)}>
+                                Check integrity
+                            </button>
+                            ${allowDownload ? html`
+                                <a href=${`https://github.com/ranchimall/${appLink.split('/').pop()}/archive/refs/heads/master.zip`} class="button dapp-card__link dapp-download-button" title="Download dapp Zip">
+                                    Download
+                                    <svg class="icon margin-left-0-5" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>
+                                </a>
+                            `: ''}
                             <a href=${appLink} class="button dapp-card__link dapp-card__link--primary margin-right-auto" target="_blank">
                                 Try it
                                 <svg class="icon margin-left-0-5" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"> <path d="M0 0h24v24H0z" fill="none"></path> <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path> </svg>    
@@ -924,14 +1145,12 @@
          */
         async function getLinkContentHash(link) {
             try {
-                const data = JSON.stringify({ url: link })
-                console.log(data)
+                const data = JSON.stringify({ urls: link })
                 return await (await fetch('https://integrity-api.ranchimall.net/hash', {
                     headers: {
                         "Content-Type": "application/json",
                     },
                     method: "POST",
-                    mode: 'no-cors',
                     body: data
                 })).json()
             } catch (e) {

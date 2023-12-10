@@ -185,6 +185,19 @@ button:disabled {
   height: 1.2rem;
   fill: rgba(var(--text-color), 0.8);
   flex-shrink: 0;
+  &--big {
+    width: 2rem;
+    height: 2rem;
+  }
+  &--danger {
+    fill: var(--danger-color);
+  }
+  &--accent {
+    fill: var(--accent-color);
+  }
+  &--green {
+    fill: var(--green);
+  }
 }
 
 .icon-only {
@@ -752,7 +765,8 @@ theme-toggle {
   gap: 1rem;
   padding: max(1rem, 2vw);
   border-radius: 1rem;
-  border: solid 0.1rem rgba(var(--text-color), 0.1);
+  border: solid thin var(--yellow);
+  background-color: #ffac2e05;
   sm-form {
     &::part(form) {
       gap: 0.5rem;
@@ -944,6 +958,9 @@ theme-toggle {
   }
   #dapp_search_input {
     width: 20rem;
+  }
+  #integrity_check_popup {
+    --width: min(42rem, 100%);
   }
   .hamburger-menu-wrapper {
     border-right: solid thin rgba(var(--text-color), 0.5);
