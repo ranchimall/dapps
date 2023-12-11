@@ -855,12 +855,19 @@ theme-toggle {
   border-radius: 1rem;
 }
 .dapp-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 4rem;
   aspect-ratio: 1/1;
   border-radius: 0.5rem;
   -o-object-fit: cover;
      object-fit: cover;
   background-color: rgba(var(--text-color), 0.06);
+}
+.dapp-card__icon .icon {
+  height: 2rem;
+  width: 2rem;
 }
 .dapp-card__category {
   font-size: 0.8rem;
@@ -941,6 +948,15 @@ theme-toggle {
 @media only screen and (max-width: 640px) {
   .hide-on-small {
     display: none;
+  }
+  #list_header > :nth-child(1) {
+    order: 1;
+  }
+  #list_header > :nth-child(2) {
+    order: 3;
+  }
+  #list_header > :nth-child(3) {
+    order: 2;
   }
   #category_selector {
     margin-left: -1rem;
