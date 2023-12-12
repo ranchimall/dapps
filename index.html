@@ -615,7 +615,8 @@
                 ],
                 "category": "wallet",
                 "repoHash": "592bdad38e1b45e41247f054de33b9d71c58d4178d70ca03c22f1def7c97e2c0",
-                "appHash": "ecad64071b9c4026e94d4e57e76ade152b63f2619d44025f6a7f4f9f31184bc2"
+                "appHash": "ecad64071b9c4026e94d4e57e76ade152b63f2619d44025f6a7f4f9f31184bc2",
+                automatedChecking: true
             },
             {
                 "name": "Blockchain Bonds",
@@ -734,11 +735,11 @@
                 const hashes = html`
                     <div class="flex flex-direction-column gap-1">
                         <div class="flex flex-direction-column gap-0-3">
-                            <h4>Authorized hash</h4>
+                            <h4>Authorized hash for private key usage</h4>
                             <sm-copy value=${knownHash}><p>${knownHash}</p></sm-copy>
                         </div>
                         <div class="flex flex-direction-column gap-0-3">
-                            <h4>Latest hash</h4>
+                            <h4>Hash of the link we just computed</h4>
                             <sm-copy value=${latestHash}><p>${latestHash}</p></sm-copy>
                         </div>
                     </div>
@@ -793,16 +794,27 @@
                 <section id="hero_section">
                     <svg id="hero_section__svg" xmlns="http://www.w3.org/2000/svg" width="50" height="103" viewBox="0 0 50 103" fill="none"> <path d="M49.919 65.4057L12.7647 28.2514V102.56L49.919 65.4057Z" fill="#ABECDB"/> <path d="M49.919 49.0706L0.913757 0.0653687V98.0758L49.919 49.0706Z" fill="#CFF3EA"/> </svg>
                     <h1>
-                        Discover the world of <br>
+                        Securely discover the world of <br>
                         exciting new blockchain apps
                     </h1>
                 </section>
                 <section id="verification_section" class="grid">
                     <div class="flex align-center gap-0-5">
                         <svg class="icon" style="fill: var(--yellow)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-                        <h4> 
+                        <h2> 
                             Always verify links before entering your private keys
-                        </h4>
+                        </h2>
+                    </div>
+                    <div class="flex flex-direction-column gap-0-5">
+                        <h4>Checks we will perform</h4>
+                        <ol>
+                            <li>
+                                Whether the contents of an app has been tampered with.
+                            </li>
+                            <li>
+                                The link itself has not been tampered with.
+                            </li>
+                        </ol>
                     </div>
                     <sm-form id="verification_form" oninvalid=${removeInvalidLinkResult} skip-submit>
                         <sm-input id="link_verification__input" class="flex-1" placeholder="Enter a link to verify" style="min-width: 16rem" required></sm-input>
@@ -867,26 +879,28 @@
             const downloadAllButtonContent = downloadAllButton.innerHTML
             downloadAllButton.innerHTML = 'Downloading...<sm-spinner></sm-spinner>'
             pseudoDisable(downloadAllButton, true)
-            const verificationPromises = dappsList.map(({ appLink }) => {
-                return new Promise((resolve, reject) => {
-                    const appRepoName = appLink.split('/').pop()
-                    getRepoHash(appRepoName).then(latestHash => {
-                        const { repoHash: knownHash } = dappsList.find(dapp => dapp.appLink === appLink)
-                        if (latestHash !== knownHash) {
-                            notify(`The dapp '${appRepoName}' has failed integrity check. Dapp won't be downloaded.`, 'error')
+            const verificationPromises = dappsList
+                .filter(({ allowDownload = true }) => allowDownload) // remove dapps that don't allow download
+                .map(({ appLink }) => {
+                    return new Promise((resolve, reject) => {
+                        const appRepoName = appLink.split('/').pop()
+                        getRepoHash(appRepoName).then(latestHash => {
+                            const { repoHash: knownHash } = dappsList.find(dapp => dapp.appLink === appLink)
+                            if (latestHash !== knownHash) {
+                                notify(`The dapp '${appRepoName}' has failed integrity check. Dapp won't be downloaded.`, 'error')
+                                reject()
+                            } else {
+                                resolve(`https://github.com/ranchimall/${appRepoName}`)
+                            }
+                        }).catch(e => {
+                            console.error(e)
+                            notify('There was an error while trying to download the dapp. Please try again later.', 'error', {
+                                timeout: 10000,
+                            })
                             reject()
-                        } else {
-                            resolve(`https://github.com/ranchimall/${appRepoName}`)
-                        }
-                    }).catch(e => {
-                        console.error(e)
-                        notify('There was an error while trying to download the dapp. Please try again later.', 'error', {
-                            timeout: 10000,
                         })
-                        reject()
                     })
                 })
-            })
             try {
                 let downloadLinks = await Promise.allSettled(verificationPromises)
                 downloadLinks = downloadLinks.filter(({ status }) => status === 'fulfilled').map(({ value }) => value)
@@ -968,11 +982,11 @@
                 const hashes = latestHash && knownHash && html`
                     <div class="flex flex-direction-column gap-1">
                         <div class="flex flex-direction-column gap-0-3">
-                            <h4>Authorized hash</h4>
+                            <h4>Authorized hash for private key usage</h4>
                             <sm-copy value=${knownHash}><p>${knownHash}</p></sm-copy>
                         </div>
                         <div class="flex flex-direction-column gap-0-3">
-                            <h4>Latest hash</h4>
+                            <h4>Hash of the link we just computed</h4>
                             <sm-copy value=${latestHash}><p>${latestHash}</p></sm-copy>
                         </div>
                     </div>
@@ -983,7 +997,14 @@
                             <svg class="icon" style="fill: var(--green)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M23,11.99l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,11.99l2.44,2.79 l-0.34,3.7l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,11.99z M19.05,13.47l-0.56,0.65l0.08,0.85 l0.18,1.95l-1.9,0.43l-0.84,0.19l-0.44,0.74l-0.99,1.68l-1.78-0.77L12,18.85l-0.79,0.34l-1.78,0.77l-0.99-1.67l-0.44-0.74 l-0.84-0.19l-1.9-0.43l0.18-1.96l0.08-0.85l-0.56-0.65l-1.29-1.47l1.29-1.48l0.56-0.65L5.43,9.01L5.25,7.07l1.9-0.43l0.84-0.19 l0.44-0.74l0.99-1.68l1.78,0.77L12,5.14l0.79-0.34l1.78-0.77l0.99,1.68l0.44,0.74l0.84,0.19l1.9,0.43l-0.18,1.95l-0.08,0.85 l0.56,0.65l1.29,1.47L19.05,13.47z"/><polygon points="10.09,13.75 7.77,11.42 6.29,12.91 10.09,16.72 17.43,9.36 15.95,7.87"/></g></g></svg>
                             <h4>Yay!</h4>
                         </div>
-                        <p>The link you provided is genuine</p>
+                        <ol>
+                            <li>
+                                There is no phishing done on this link. You can safely enter your private key.
+                            </li>
+                            <li>
+                                The code powering this site is not modified through unauthorized means.
+                            </li>
+                        </ol>
                         ${hashes}
                     `)
                 } else {

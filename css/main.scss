@@ -275,6 +275,11 @@ sm-option {
 ul {
   list-style: none;
 }
+ol {
+  display: grid;
+  gap: 0.8rem;
+  padding-left: 1rem;
+}
 .interact {
   position: relative;
   overflow: hidden;
