@@ -966,12 +966,13 @@
                     // and not the hash of the link content
                     latestHash = await getRepoHash('blockbook')
                     knownHash = repoHash
+                    hasValidHash = latestHash === knownHash
                 } else {
                     const [contentHash, latestRepoHash] = await Promise.all([
                         getLinkContentHash(linkToVerify),
                         getRepoHash(dappInfo.appLink.split('/').pop())
                     ])
-                    latestHash = contentHash[linkToVerify]
+                    latestHash = contentHash[0].hash
                     knownHash = appHash
                     hasValidHash = latestHash === knownHash && repoHash === latestRepoHash;
                     if (!hasValidHash && repoHash !== latestRepoHash) {
