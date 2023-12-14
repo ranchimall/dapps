@@ -821,17 +821,6 @@
                             Always verify links before entering your private keys
                         </h2>
                     </div>
-                    <div class="flex flex-direction-column gap-0-5">
-                        <h4>Checks we will perform</h4>
-                        <ol>
-                            <li>
-                                Whether the contents of an app has been tampered with.
-                            </li>
-                            <li>
-                                The link itself has not been tampered with.
-                            </li>
-                        </ol>
-                    </div>
                     <sm-form id="verification_form" oninvalid=${removeInvalidLinkResult} skip-submit>
                         <sm-input id="link_verification__input" class="flex-1" placeholder="Enter a link to verify" style="min-width: 16rem" required></sm-input>
                         <div class="multi-state-button">
@@ -1017,6 +1006,8 @@
                         </div>
                     </div>
                 `;
+                while (getRef('verification_form').nextElementSibling)
+                    getRef('verification_form').nextElementSibling.remove()
                 if (verification) {
                     getRef('verification_form').after(html.node/*html*/`
                         <div class="flex align-center gap-0-5">
@@ -1055,6 +1046,19 @@
         function removeInvalidLinkResult() {
             while (getRef('verification_form').nextElementSibling)
                 getRef('verification_form').nextElementSibling.remove()
+            getRef('verification_form').after(
+                html.node/*html*/`<div class="flex flex-direction-column gap-0-5" >
+                    <h4>Checks we will perform</h4>
+                    <ol>
+                        <li>
+                            Whether the contents of an app has been tampered with.
+                        </li>
+                        <li>
+                            The link itself has not been tampered with.
+                        </li>
+                    </ol>
+                </div>`
+            )
         }
         function handleFilterCategory(e) {
             const query = getRef('dapp_search_input')?.value.trim().toLowerCase() || '';
