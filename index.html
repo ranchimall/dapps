@@ -748,7 +748,7 @@
                 pseudoDisable(e.target, true)
                 renderElem(e.target, html`Checking...`)
                 const { hasValidHash, knownHash, latestHash } = await hasAKnownHash(appLink)
-                const hashes = html`
+                const hashes = latestHash && knownHash && html`
                     <div class="flex flex-direction-column gap-1">
                         <div class="flex flex-direction-column gap-0-3">
                             <h4>Authorized hash for private key usage</h4>
@@ -770,14 +770,33 @@
                         <strong style="color: var(--danger-color)">Failed integrity check</strong>
                     `)
                     renderElem(getRef('integrity_check_popup__content'), html`
-                        <div class="flex flex-direction-column gap-0-5">
-                            <svg class="icon icon--big icon--danger" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                            <h2 style="color: var(--danger-color)">Failed integrity check</h2>
+                        <div class="grid gap-2">
+                            <div class="grid gap-0-5">
+                                <div class="flex flex-direction-column gap-0-5">
+                                    <svg class="icon icon--big icon--danger" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                                    <h2 style="color: var(--danger-color)">Failed integrity check</h2>
+                                </div>
+                                <p>
+                                    The dapp has failed integrity check. Please don't use it.
+                                </p>
+                            </div>
+                            <div class="grid gap-1">
+                                <h4>Failed checks</h4>
+                                <ol class="grid gap-0-5">
+                                    ${!latestHash ? html`
+                                        <li>
+                                            Couldn't generate hash for the link.
+                                        </li>
+                                    ` : ''}
+                                    ${latestHash && latestHash !== knownHash ? html`
+                                        <li>
+                                            The content of the site has been modified through unauthorized means.
+                                        </li>    
+                                    `: ''}
+                                </ol>
+                            </div>
+                            ${hashes}
                         </div>
-                        <p>
-                            The dapp has failed integrity check. Please don't use it.
-                        </p>
-                        ${hashes}
                     `)
                 } else {
                     renderElem(getRef('integrity_check_popup__content'), html`
@@ -947,7 +966,7 @@
                 let knownHash, latestHash, hasValidHash
                 const dappInfo = dappsList.find(({ appLink }) => linkToVerify.includes(appLink))
                 if (!dappInfo) return false
-                const { appHash, repoHash } = dappInfo
+                const { appHash, repoHash, automatedChecking = false } = dappInfo
                 if (linkToVerify.includes('https://blockbook.ranchimall.net')) {
                     // blockbook is special case
                     // it is a server side rendered app
@@ -957,16 +976,22 @@
                     knownHash = repoHash
                     hasValidHash = latestHash === knownHash
                 } else {
-                    const [contentHash, latestRepoHash] = await Promise.all([
-                        getLinkContentHash(linkToVerify),
-                        getRepoHash(dappInfo.appLink.split('/').pop())
-                    ])
-                    latestHash = contentHash[0].hash
-                    knownHash = appHash
-                    hasValidHash = latestHash === knownHash && repoHash === latestRepoHash;
-                    if (!hasValidHash && repoHash !== latestRepoHash) {
-                        latestHash = latestRepoHash
-                        knownHash = repoHash
+                    if (automatedChecking) {
+                        const latestRepoHash = await getRepoHash(dappInfo.appLink.split('/').pop())
+                        latestHash = knownHash = latestRepoHash
+                        hasValidHash = true
+                    } else {
+                        const [contentHash, latestRepoHash] = await Promise.all([
+                            getLinkContentHash(linkToVerify),
+                            getRepoHash(dappInfo.appLink.split('/').pop())
+                        ])
+                        latestHash = contentHash[0].hash
+                        knownHash = appHash
+                        hasValidHash = latestHash === knownHash && repoHash === latestRepoHash;
+                        if (!hasValidHash && repoHash !== latestRepoHash) {
+                            latestHash = latestRepoHash
+                            knownHash = repoHash
+                        }
                     }
                 }
                 return { hasValidHash, latestHash, knownHash }
@@ -1026,12 +1051,38 @@
                     `)
                 } else {
                     getRef('verification_form').after(html.node/*html*/`
-                        <div class="flex align-center gap-0-5">
-                            <svg class="icon" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M15.73,3H8.27L3,8.27v7.46L8.27,21h7.46L21,15.73V8.27L15.73,3z M19,14.9L14.9,19H9.1L5,14.9V9.1L9.1,5h5.8L19,9.1V14.9z M14.83,7.76L12,10.59L9.17,7.76L7.76,9.17L10.59,12l-2.83,2.83l1.41,1.41L12,13.41l2.83,2.83l1.41-1.41L13.41,12l2.83-2.83 L14.83,7.76z"/></g></svg>
-                            <h4>Danger!</h4>
+                        <div class="grid gap-2">
+                            <div class="grid gap-0-5">
+                                <div class="flex align-center gap-0-5">
+                                    <svg class="icon" style="fill: var(--danger-color)" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M15.73,3H8.27L3,8.27v7.46L8.27,21h7.46L21,15.73V8.27L15.73,3z M19,14.9L14.9,19H9.1L5,14.9V9.1L9.1,5h5.8L19,9.1V14.9z M14.83,7.76L12,10.59L9.17,7.76L7.76,9.17L10.59,12l-2.83,2.83l1.41,1.41L12,13.41l2.83,2.83l1.41-1.41L13.41,12l2.83-2.83 L14.83,7.76z"/></g></svg>
+                                    <h4>Danger!</h4>
+                                </div>
+                                <p>
+                                    Please don't enter your private key on this link.
+                                </p>
+                            </div>
+                            <div class="grid gap-1">
+                                <h4> Failed checks</h4>
+                                <ol class="grid gap-0-5">
+                                    ${!linkIsAuthorized ? html`
+                                        <li>
+                                            This link is not authorized by us.
+                                        </li>
+                                    ` : ''}
+                                    ${linkIsAuthorized && !latestHash ? html`
+                                        <li>
+                                            Couldn't generate hash for the link.
+                                        </li>
+                                    ` : ''}
+                                    ${linkIsAuthorized && latestHash && latestHash !== knownHash ? html`
+                                        <li>
+                                            The content of the site has been modified through unauthorized means.
+                                        </li>    
+                                    `: ''}
+                                </ol>
+                                ${hashes}
+                            </div>
                         </div>
-                        <p>Link you provided is not genuine</p>
-                        ${hashes}
                     `)
                 }
             } catch (e) {
