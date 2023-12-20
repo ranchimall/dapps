@@ -633,8 +633,8 @@
                     "multisig"
                 ],
                 "category": "social",
-                "repoHash": "e0d3b9335c587355bcb125d7a57fb934aebc4f8b87758bfc29221ea349448e3b",
-                "appHash": "188174ab439516d25fe3ba30b18ca7fae07277f97c6df019331b8300d1f68c14"
+                "repoHash": "273cac094cd61c37638a3d4e68091c3bded35ad27836c2597b864d64f5f75f20",
+                "appHash": "84ab17020efa2fe8f0af1c253a7825c6ab02f62a346771a72ad7afc37832ad41"
             },
             {
                 "name": "RanchiMall Times",
@@ -944,6 +944,7 @@
                             getLinkContentHash(linkToVerify),
                             getRepoHash(dappInfo.appLink.split('/').pop())
                         ])
+                        console.log(contentHash, latestRepoHash)
                         latestHash = contentHash[0].hash
                         knownHash = appHash
                         hasValidHash = latestHash === knownHash && repoHash === latestRepoHash;
