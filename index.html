@@ -463,8 +463,8 @@
                     "wallet"
                 ],
                 "category": "wallet",
-                "repoHash": "28de47f70ab8e4e424baf127e195ece192735810a8acfa3345c265cb3f9b095c",
-                "appHash": "37d7002211272d841b93803c69e79351758bc89c348167805b216ecfd85a5289"
+                "repoHash": "b75c29c0907953b1fa1b7299a985b5747b9458589d436512825d3e041d5e4327",
+                "appHash": "dab06cc032e6df2b176ed058d3d3c3876f3affb8ff22b39bdf74b066ce9c9044"
             },
             {
                 "name": "Certify",
@@ -524,8 +524,8 @@
                     "flo"
                 ],
                 "category": "wallet",
-                "repoHash": "faffb85ab277cce6ae9dd718056eebf66a79acb809315ad2430a8689b3f98637",
-                "appHash": "2f55bd07e27cf2e869854b41883b733b9cd6eb6e4809f6a92e66d62d747a2f91"
+                "repoHash": "f402787d644f4c9703018331a9bd44a963a203068821abe1b2e026f1f0532d39",
+                "appHash": "a114bbb742a2b26694d2417ab893c3539462804580f3bc77170a5a66547f86ce"
             },
             {
                 "name": "FLO Scout",
@@ -633,8 +633,8 @@
                     "multisig"
                 ],
                 "category": "social",
-                "repoHash": "273cac094cd61c37638a3d4e68091c3bded35ad27836c2597b864d64f5f75f20",
-                "appHash": "84ab17020efa2fe8f0af1c253a7825c6ab02f62a346771a72ad7afc37832ad41"
+                "repoHash": "07317c44508f09db1e71ac309efa13d3b2db0559bef5e28f86638f9eed3671af",
+                "appHash": "952ad9771601f67fbb915d690287843601744be4cff5431d8de29649c2892cfc"
             },
             {
                 "name": "RanchiMall Times",
@@ -925,7 +925,7 @@
                 let knownHash, latestHash, hasValidHash
                 const dappInfo = dappsList.find(({ appLink }) => linkToVerify.includes(appLink))
                 if (!dappInfo) return false
-                const { appHash, repoHash, automatedChecking = false } = dappInfo
+                const { appHash, repoHash, automatedChecking = false, appLink, repoLink, allowDownload = true } = dappInfo
                 if (linkToVerify.includes('https://blockbook.ranchimall.net')) {
                     // blockbook is special case
                     // it is a server side rendered app
@@ -935,14 +935,14 @@
                     knownHash = repoHash
                     hasValidHash = latestHash === knownHash
                 } else {
-                    if (automatedChecking) {
-                        const latestRepoHash = await getRepoHash(dappInfo.appLink.split('/').pop())
+                    if (automatedChecking || !allowDownload) {
+                        const latestRepoHash = await getRepoHash((repoLink || appLink).split('/').pop())
                         latestHash = knownHash = latestRepoHash
                         hasValidHash = true
                     } else {
                         const [contentHash, latestRepoHash] = await Promise.all([
                             getLinkContentHash(linkToVerify),
-                            getRepoHash(dappInfo.appLink.split('/').pop())
+                            getRepoHash((repoLink || appLink).split('/').pop())
                         ])
                         console.log(contentHash, latestRepoHash)
                         latestHash = contentHash[0].hash
