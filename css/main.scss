@@ -832,6 +832,7 @@ theme-toggle {
     margin-left: auto;
   }
   &__link {
+    gap: 0.5rem;
     &--primary {
       background-color: rgba(var(--text-color), 1);
       color: rgba(var(--background-color), 1);

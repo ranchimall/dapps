@@ -891,6 +891,9 @@ theme-toggle {
   margin-top: 1rem;
   margin-left: auto;
 }
+.dapp-card__link {
+  gap: 0.5rem;
+}
 .dapp-card__link--primary {
   background-color: rgba(var(--text-color), 1);
   color: rgba(var(--background-color), 1);
