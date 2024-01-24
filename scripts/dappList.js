@@ -14,7 +14,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "f4db3585488e27e1c0fafdffc2935d61aa66be3bfc468280de3c08ef27341d12"
+    "appHash": "08dd8e114a64ba90bc70a4e49f941a46f42ee8630fe4e02df3fd4f1da029187d"
   },
   {
     "name": "Blockchain Bonds",
@@ -73,8 +73,8 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": null,
-    "appHash": "d31dd62e942354a0cd781def19d80c5268958b20a7e29335c7337cdc32cc315e"
+    "repoHash": "1e8e422cd4649279a095f8016d28d3a68371b5cda864695b0dad89129e2edf49",
+    "appHash": "c686d2fdcbb4a7b1880371836770e7d8fc043d13bf8f6c2cfe5e3d536057d2af"
   },
   {
     "name": "Certify",
@@ -88,7 +88,7 @@ dappsList = [
       "certification"
     ],
     "category": "identity",
-    "repoHash": null,
+    "repoHash": "7597594c4da4419291ef3800e076d13946fbef8e66641e1d491751dab438e602",
     "appHash": "563a97cc5be968d5ffc1511925766bc624df5ae3f71dca5ef48a5030ebe3b5ba"
   },
   {
@@ -103,7 +103,7 @@ dappsList = [
       "content"
     ],
     "category": "content",
-    "repoHash": null,
+    "repoHash": "d959e8a6807fcc61745ecfdd09d67e875f0d68376c344148010fb117677ea563",
     "appHash": "f91a7cfd7aeba549efe6f8e2fb095007f28fe6c07ca572974bdbc9a7c42afd80"
   },
   {
@@ -119,7 +119,7 @@ dappsList = [
       "rupee"
     ],
     "category": "finance",
-    "repoHash": null,
+    "repoHash": "d31498360350c242def488fd80fcb25a74963ee8bb885ed884a545cf898ec7a5",
     "appHash": "64aa230e742d106e0daa007924e27669abe809278ce8109f357dbe35e5402f7b"
   },
   {
@@ -163,7 +163,7 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": null,
+    "repoHash": "ca127315128e3f79e5a924f52457a9831ad753e34ed26dda9819b6627da109b5",
     "appHash": "8bb27f947a357a901961df1d948c23d107d8340960604502f8bf57eb3a49b00c"
   },
   {
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "435e7c9a7624f252c1c5f8b77fe1fd7a786577c48fbea93b33f8c13758b0b17b"
+    "appHash": "cc2f2ec54f4702bd0d26c8d20baf5456441db85b94c0f18d7df95a3a7b08a948"
   },
   {
     "name": "Intern payments",
@@ -241,7 +241,7 @@ dappsList = [
       "logsheets"
     ],
     "category": "content",
-    "repoHash": null,
+    "repoHash": "41d0fa586701ff309c60c3b6ce861a466a704577df1e505dbd4f92f08a9ebbfe",
     "appHash": "1650c9888e9b418507d41af3ba76ee14753cfa0faa4f9753dff46fcd2a44047d"
   },
   {
@@ -259,7 +259,7 @@ dappsList = [
       "multisig"
     ],
     "category": "social",
-    "repoHash": null,
+    "repoHash": "8987da67f31809998c156ce5a29e4ff7f9e7683c93b1d52dbf3e6df34fb77ba5",
     "appHash": "cbcfca5dee607f5450a19c7e77ef83115ee17ea3ade89c3d8ec2681a6996ac96"
   },
   {

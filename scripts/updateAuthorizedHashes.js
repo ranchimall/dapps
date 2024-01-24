@@ -1,3 +1,7 @@
+// run with `node updateAuthorizedHashes.js`
+// *** WARNING *** : Do not run this script multiple times in a short period of time.
+// It will exceed the Github API rate limit and you will have to wait for an hour to run it again.
+
 const fs = require('fs');
 const path = require('path');
 
