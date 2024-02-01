@@ -14,7 +14,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "08dd8e114a64ba90bc70a4e49f941a46f42ee8630fe4e02df3fd4f1da029187d"
+    "appHash": "97421234a4b746bba76dd6199dc626697d90e28efce5b864c22ee1dfde82f64e"
   },
   {
     "name": "Blockchain Bonds",
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "cc2f2ec54f4702bd0d26c8d20baf5456441db85b94c0f18d7df95a3a7b08a948"
+    "appHash": "e8b16e0fedc000cbf7a05c98edeb38d640b43747ba64f0eed148bc8a366bed5d"
   },
   {
     "name": "Intern payments",
@@ -259,8 +259,8 @@ dappsList = [
       "multisig"
     ],
     "category": "social",
-    "repoHash": "8987da67f31809998c156ce5a29e4ff7f9e7683c93b1d52dbf3e6df34fb77ba5",
-    "appHash": "cbcfca5dee607f5450a19c7e77ef83115ee17ea3ade89c3d8ec2681a6996ac96"
+    "repoHash": "f3ece6d374dd4316a9554fad2882fae301cdece813068105cc76c6601457eb1e",
+    "appHash": "520bd9faf781820885937a45080b577a61fe68b09b0a7a7014d3e26cfca8cc67"
   },
   {
     "name": "RanchiMall Times",
