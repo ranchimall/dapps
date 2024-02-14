@@ -14,7 +14,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "5140367b50b4e1265119108c03c9f8df0cd85105ee98e5f8358adef5a09bddd5"
+    "appHash": "5b2d96e71535ab1f83e76905fc0d8ac082ccafc4c0fba3c9abd93cf8c464ac35"
   },
   {
     "name": "Blockchain Bonds",
@@ -74,7 +74,7 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "911d04d1caf344ba97a4df6c7188aacd8b316f9131b69495acd50b46c49beecb",
-    "appHash": "c686d2fdcbb4a7b1880371836770e7d8fc043d13bf8f6c2cfe5e3d536057d2af"
+    "appHash": "2c9f8c40465fd7a71ecd629702f5d8713e82f41af7a05170ecca50a2137acd0f"
   },
   {
     "name": "Certify",
@@ -120,7 +120,7 @@ dappsList = [
     ],
     "category": "finance",
     "repoHash": "d31498360350c242def488fd80fcb25a74963ee8bb885ed884a545cf898ec7a5",
-    "appHash": "2f1f0f43b9efe27f64f4fdeb7b14177fac521ae9add62ef85c1baf8db0fe2557"
+    "appHash": "1b0d519ec8ef7e5f686e48695a65ada6d52116114c35ccab5ee8f8cf1acd7714"
   },
   {
     "name": "FLO Ethereum",
@@ -135,7 +135,7 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "59d37bcbf8125d2c1108904433749222826b8e6fe78961d40e4d9722207bf0f3",
-    "appHash": "ec95369ef3305d0d0bc4f7faf03c8ce883c2a4cfb3fde69fcc043804b1abc3fd"
+    "appHash": "08610e778c24bf77997f789891b82174d3fc397728b569f4e3ffeb4ccec00468"
   },
   {
     "name": "FLO Scout",
@@ -164,7 +164,7 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "29517bf2de6b1d2aac3f0c0dd3db1cc82705e67e1725b2a411f686328a9770a3",
-    "appHash": "9b5e0b5bb53a0e1814cc11f780ba30ce097bb630313e97d58ad4b5074faf649f"
+    "appHash": "5b374ec493c8f07f86bf04e36a46f8bf8a4dc90baaf5976d79fc8abfbcc6b793"
   },
   {
     "name": "FLOpay",
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "080191506ae9f2a42430734f1fa6cca5f075eab4679f8c686bd89fa2398d59ce"
+    "appHash": "cc7547cf3aff6487cb1e03e767e8bbda8f06701c9a4ff0a10f207893969275e5"
   },
   {
     "name": "Intern payments",
