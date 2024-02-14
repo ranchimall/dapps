@@ -134,8 +134,8 @@ dappsList = [
       "flo"
     ],
     "category": "wallet",
-    "repoHash": "252e0ecb55cee82826d9efb188e503d762606251800cf000e10d59af5c2d9698",
-    "appHash": "08ed69f27b028987f60f69bdde9e88f0b836e41df0952c5fad118b149438e6fc"
+    "repoHash": "59d37bcbf8125d2c1108904433749222826b8e6fe78961d40e4d9722207bf0f3",
+    "appHash": "ec95369ef3305d0d0bc4f7faf03c8ce883c2a4cfb3fde69fcc043804b1abc3fd"
   },
   {
     "name": "FLO Scout",
