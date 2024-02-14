@@ -73,7 +73,7 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": "1e8e422cd4649279a095f8016d28d3a68371b5cda864695b0dad89129e2edf49",
+    "repoHash": "911d04d1caf344ba97a4df6c7188aacd8b316f9131b69495acd50b46c49beecb",
     "appHash": "c686d2fdcbb4a7b1880371836770e7d8fc043d13bf8f6c2cfe5e3d536057d2af"
   },
   {
@@ -163,7 +163,7 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": "ca127315128e3f79e5a924f52457a9831ad753e34ed26dda9819b6627da109b5",
+    "repoHash": "29517bf2de6b1d2aac3f0c0dd3db1cc82705e67e1725b2a411f686328a9770a3",
     "appHash": "9b5e0b5bb53a0e1814cc11f780ba30ce097bb630313e97d58ad4b5074faf649f"
   },
   {
