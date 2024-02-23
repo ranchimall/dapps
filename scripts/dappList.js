@@ -14,7 +14,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "0ad6fc3664984c075cb9806225d581028226047969674f78060c7dfcd3c69771"
+    "appHash": "cc1e9ce49f2835e64eed21ddc26bb1d8d72de181d736c91944c377cfae078ef9"
   },
   {
     "name": "Blockchain Bonds",
@@ -134,7 +134,7 @@ dappsList = [
       "flo"
     ],
     "category": "wallet",
-    "repoHash": "59d37bcbf8125d2c1108904433749222826b8e6fe78961d40e4d9722207bf0f3",
+    "repoHash": "21ff870010d36d0bd23fdb40da976f58ef7d895f011f8b6da131853094964bdc",
     "appHash": "08610e778c24bf77997f789891b82174d3fc397728b569f4e3ffeb4ccec00468"
   },
   {
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "ba998564c5910331fad223cb13ef5f0894a9cd2318350c9cbb20b8489df8f80e"
+    "appHash": "802500c267aa867c59007079d6252d0d44b02e77fd60eb01c3f684b55a5936b5"
   },
   {
     "name": "Intern payments",
@@ -289,8 +289,8 @@ dappsList = [
       "ribc"
     ],
     "category": "management",
-    "repoHash": "18ed15a4c5cc28e05e64c50a36be8126bd311121b83ebcdb70737899e822912d",
-    "appHash": "a7d20e4789808bc91354e3c5bc7f46c6e7118000ef6c653e7edd8028d2761065"
+    "repoHash": "6a5db9ddd9e4bd646936964ff59001dc418616d3a2e38fa7eae0d82f75da2923",
+    "appHash": "aa96c6885fcaec6dad9b026d12dd15e2d78cf6ca9d7873e8ced8df95cd81fe9d"
   },
   {
     "name": "Taproot wallet",
