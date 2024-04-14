@@ -14,7 +14,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "eaafa3ae75b2c3a6cf4f12a11a3097488f01ba24c878199ade4e8706fb4d1950"
+    "appHash": "6849229f12d4d299dfc338a0f18146bf946f59b3265611bc087d83ef6b17efb2"
   },
   {
     "name": "Blockchain Bonds",
@@ -73,8 +73,8 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": "6e304e29575074f13dad1d5a73d8a7f9b25dfee8702571b1d3c7c2faa0b3b89a",
-    "appHash": "2c9f8c40465fd7a71ecd629702f5d8713e82f41af7a05170ecca50a2137acd0f"
+    "repoHash": "d46fb46a7474d7e5459ab389b33fd61e91f1fc69f735bacfe0dc6b5d9609ef1f",
+    "appHash": "59a3ecebf9aa31407e80745a729c47e158d3cc082aa696db10b5a3137a4310e8"
   },
   {
     "name": "Certify",
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "f61d11c2dcf2c9d574f6015b1ff4d9d18d3022c0f687fdfdbc6ee5a353e7e050"
+    "appHash": "ac4e66eb4272a491d676b85209880d60521635fcda484f2ea7f6da80ce15c00c"
   },
   {
     "name": "Intern payments",
