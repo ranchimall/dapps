@@ -73,8 +73,8 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": "2d3cbfa3c8d68a5a2a9503401d5d6a7bcc0d4629f48956f975c0817094a33a72",
-    "appHash": "b8bce2d1a17b826ef02a5879a59117b2ab023f02ff3647cf41657126f3553c15"
+    "repoHash": "24c3f3d56456ceea959342a8427ac7523c485cef7dbd6163a06b2e732e372105",
+    "appHash": "aeedc7deef3f18ad2cd70cb4fb55618c97283fa667633d0684c2a4d5eebcddee"
   },
   {
     "name": "Certify",
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "232eea57e3a0c39b7f1cfb4e0a727173f9152546c2dbcb354dfa159512aef41d"
+    "appHash": "b6f683f5ac63d0025f3ac766fbf69689eec01f24d24ace8514b49dbaa768ad93"
   },
   {
     "name": "Intern payments",
