@@ -12,9 +12,9 @@ dappsList = [
     ],
     "category": "blockchain-explorer",
     "allowDownload": false,
-    "repoHash": "1d5cc442744f429fba5ad97ada001bfed2556d0ec7e1443b4ededb65f6ba5c61",
+    "repoHash": "bafa95f5974ea773e16f625fc2132f3b824c6cae3d4e323afb83e5b6a0979cbd",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "1f62d4533edd486a5aaa464fd8e4e5a7dc23113ee9078101a396a2a96d8c40d6"
+    "appHash": "94f8339d1ee1fd85221eb2a161dae634b1051caff5e631a60271c0714fa52bab"
   },
   {
     "name": "Blockchain Bonds",
@@ -29,7 +29,7 @@ dappsList = [
     ],
     "category": "finance",
     "repoHash": "7250f70ac910600ab2b1c77cc13e829aac22c032f0da1f1686e680f48f85fb0a",
-    "appHash": "a730c4a0f216d9e7a0f1179ff890be48bf42b6aa62487aa62a0ebe7d9d8c7963"
+    "appHash": "c39b67048688a98bd37ac0e99b75f3cefa697a8e47aa3d60b7d0b76fd2241df1"
   },
   {
     "name": "Bob's Fund",
@@ -44,7 +44,7 @@ dappsList = [
     ],
     "category": "finance",
     "repoHash": "232846d9000726c0ff00ee66f453e44c4a246c2e532f16194c69267aa4a5e3ec",
-    "appHash": "15a9a3184e29a5188a863ac20674c6f97fcf5f2d98a0e6a46d6e9d709571ee4f"
+    "appHash": "8336a2369401fdde6285f3a10dffe1e548be21b85872cd6f0d208a4653ad1d6c"
   },
   {
     "name": "BTC Mortgage",
@@ -60,7 +60,7 @@ dappsList = [
     ],
     "category": "finance",
     "repoHash": "c606e37d2ab869d3c15f6b44711c07cefffa965692c91309652872812164fc85",
-    "appHash": "6217c0903676749165c6e9e826a7d712e96c657b14463f7bb4a5574257edef46"
+    "appHash": "9f48678c03bc4edf41f268e3927c84a6784d1c226a57298c8c00217d92e44b6e"
   },
   {
     "name": "BTC Wallet",
@@ -73,8 +73,8 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": "24c3f3d56456ceea959342a8427ac7523c485cef7dbd6163a06b2e732e372105",
-    "appHash": "aeedc7deef3f18ad2cd70cb4fb55618c97283fa667633d0684c2a4d5eebcddee"
+    "repoHash": "f27faf88356af022394fab791832a5a86e55db01df0da56cbbe26e5a2d742409",
+    "appHash": "0aa3d600d1eec90732517e0522c5c49ba35a2cc11ccd9ceda0019f42e7b85c0c"
   },
   {
     "name": "Certify",
@@ -104,7 +104,7 @@ dappsList = [
     ],
     "category": "content",
     "repoHash": "d959e8a6807fcc61745ecfdd09d67e875f0d68376c344148010fb117677ea563",
-    "appHash": "2ebab95229bb799dedee39210e83393a48e085a35cecc51d3a8386eb10bcf6a0"
+    "appHash": "d25de75cb269aea0364315f3bf01ec353bacf4f21394a997711831235d3670c5"
   },
   {
     "name": "Exchange",
@@ -119,8 +119,8 @@ dappsList = [
       "rupee"
     ],
     "category": "finance",
-    "repoHash": "d31498360350c242def488fd80fcb25a74963ee8bb885ed884a545cf898ec7a5",
-    "appHash": "1b0d519ec8ef7e5f686e48695a65ada6d52116114c35ccab5ee8f8cf1acd7714"
+    "repoHash": "e9931ea21196ed5b36d90938e065cc3298646e92d8c4ddac9c82f768103c3c05",
+    "appHash": "91108a0817e1efe3ee8939dbf19c7c3fe21adbf612b3a78e8c75278c237bbea7"
   },
   {
     "name": "FLO Ethereum",
@@ -134,8 +134,8 @@ dappsList = [
       "flo"
     ],
     "category": "wallet",
-    "repoHash": "b1cc2acd4d67a74db2222f3cbf8612ab81b77757b324c46bc3d56f2c1ae9b107",
-    "appHash": "5f2d11419dfaa494c07b1b508fddf73c8e987529a574cad674e4bd594a092d67"
+    "repoHash": "db699b68fce657a4ef9c56e2d2dcebe850056401dda971d96d6a595583d91510",
+    "appHash": "e99fbfa41825d052f7dc043b7e3a678ef57484cc619bf06b672f780780325f21"
   },
   {
     "name": "FLO Scout",
@@ -150,7 +150,7 @@ dappsList = [
     ],
     "category": "blockchain-explorer",
     "repoHash": "97cac6e0c06e701ea535222f830bbac7904a82ad782e21e9888ee4a6148d3aaa",
-    "appHash": "3af89353f4dcab0706919e68380c7006f447af890fab377f9f8b30d586268334"
+    "appHash": "98c76d72685e4781a91ef9c003e20024920b04722efba561a0eb89530e45600f"
   },
   {
     "name": "FLO Wallet",
@@ -164,7 +164,7 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "29517bf2de6b1d2aac3f0c0dd3db1cc82705e67e1725b2a411f686328a9770a3",
-    "appHash": "5b374ec493c8f07f86bf04e36a46f8bf8a4dc90baaf5976d79fc8abfbcc6b793"
+    "appHash": "556eb13671117d0f86b63d542b8b148ab7136eacf597f3209436129d39d00ca4"
   },
   {
     "name": "FLOpay",
@@ -178,8 +178,8 @@ dappsList = [
       "rupee"
     ],
     "category": "wallet",
-    "repoHash": "c8cfe34221bc04ebd26d9c5480a229e7d168dfe398fb4dcf9f61ffbb77b413f8",
-    "appHash": "53dd73e173fd3834975f560146eef34ec867af6a78c4096f538d539b4f383922"
+    "repoHash": "51353267fffbcbeb1a8f10e254ccfd1079bb6921614367f09093c2f914ea1b30",
+    "appHash": "75fcddab933278727dfc8f301b106b9fe31bb4a0d5f118a474d3e48136c81ba5"
   },
   {
     "name": "ICO Exchange",
@@ -198,7 +198,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "b6f683f5ac63d0025f3ac766fbf69689eec01f24d24ace8514b49dbaa768ad93"
+    "appHash": "ec16bbd8985c1d310a6b92361d611099edc4851a573c5f20d55dc517ca0898bc"
   },
   {
     "name": "Intern payments",
@@ -213,7 +213,7 @@ dappsList = [
     ],
     "category": "finance",
     "repoHash": "c1cd5fc3546a2ef76a74435ec9fc4db99e91e03a9948a96ee8dabada94c8a7b2",
-    "appHash": "34db502fd93744a3eafe78ae24cfc9f88af6e625f44243c3607a0ee1380d7ca3"
+    "appHash": "1dad048b1ea341f6a24bbd33a4b97b638d257a0d24c42df3512dc1725d175108"
   },
   {
     "name": "KYC",
@@ -227,7 +227,7 @@ dappsList = [
     ],
     "category": "identity",
     "repoHash": "1f7b34d905149195534f84f017e67375842197d247ba93267243b47502c04ccc",
-    "appHash": "8c101e37f75d1cdf77ad7a845c3e222757a42cf9c2babaad6e6129e0e075aa9d"
+    "appHash": "be9955c13151b23e6c5c5e7a55ee548e4653b83a67dfb664724f77cb3de92249"
   },
   {
     "name": "LogSheet",
@@ -242,7 +242,7 @@ dappsList = [
     ],
     "category": "content",
     "repoHash": "41d0fa586701ff309c60c3b6ce861a466a704577df1e505dbd4f92f08a9ebbfe",
-    "appHash": "ce20e4f53a274a2e004b1c58b449f88f213f8c356a392355c5f623bf24ea6d70"
+    "appHash": "8c61881fb55422565ad542fde8691fcc26b8bb26c6b8d8d459484c312ce4721f"
   },
   {
     "name": "Messenger",
@@ -260,7 +260,7 @@ dappsList = [
     ],
     "category": "social",
     "repoHash": "ee9ac48001e889e767def959f07d767545058ab4e5372ee0441bb006503809e5",
-    "appHash": "d2e9457497f1483ce9ab3bfe1c6f7fb36f56400a73ae4d8179337977f2e7e956"
+    "appHash": "58c1ccbd44d978c2fedcbc926d867be09ce093c0edb565c8cd363407ab1d4d05"
   },
   {
     "name": "RanchiMall Times",
@@ -275,7 +275,7 @@ dappsList = [
     ],
     "category": "content",
     "repoHash": "ebb8ed672eb4081c83e37000ca51c3b9e92701a51495c59ce1893568fbc7513b",
-    "appHash": "2d7af72534f30a68248d239ced700fcd4830d6909e0da6cc4d83ab38c4f3dccc"
+    "appHash": "42d326990c5701de8ca47b2693bdfb7a45fb59945825501ebd4a6daf86a6802d"
   },
   {
     "name": "RIBC",
@@ -289,8 +289,8 @@ dappsList = [
       "ribc"
     ],
     "category": "management",
-    "repoHash": "6a5db9ddd9e4bd646936964ff59001dc418616d3a2e38fa7eae0d82f75da2923",
-    "appHash": "aa96c6885fcaec6dad9b026d12dd15e2d78cf6ca9d7873e8ced8df95cd81fe9d"
+    "repoHash": "907c2a7af640722e48146e8b9ff7d5415321f0d3cfffe5761091f8498ad9d879",
+    "appHash": "3c5e29172d60659f9822b8b90d4dffc8cd8dbeb6110d4da4026d176efbed38ea"
   },
   {
     "name": "Taproot wallet",
@@ -305,7 +305,7 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "2c8c1a065fcba4f9352317e6718d6364f354ed96eb77af9d4c092a6e523060e6",
-    "appHash": "ffe0a9c8a09b5b1499d6827ef74074026655f0679c497d015118a0d98c2b78fe",
+    "appHash": "f039f5f90ad64c24c7c4b8bcc691bf405912994ff086ce5b3555222c65f33284",
     "automatedChecking": true
   }
 ]
