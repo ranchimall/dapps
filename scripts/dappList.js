@@ -307,5 +307,50 @@ dappsList = [
     "repoHash": "2c8c1a065fcba4f9352317e6718d6364f354ed96eb77af9d4c092a6e523060e6",
     "appHash": "f039f5f90ad64c24c7c4b8bcc691bf405912994ff086ce5b3555222c65f33284",
     "automatedChecking": true
+  },
+  {
+    "name": "Solana Wallet",
+    "description": "Solana Web Wallet linked with FLO and Bitcoin address",
+    "icon": "<svg class=\"icon\" width=\"128\" height=\"128\" viewBox=\"0 0 397.7 311.7\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <style type=\"text/css\"> .st0{fill:url(#SVGID_1_);} .st1{fill:url(#SVGID_2_);} .st2{fill:url(#SVGID_3_);} </style> <linearGradient id=\"SVGID_1_\" gradientUnits=\"userSpaceOnUse\" x1=\"360.8791\" y1=\"351.4553\" x2=\"141.213\" y2=\"-69.2936\" gradientTransform=\"matrix(1 0 0 -1 0 314)\"> <stop offset=\"0\" style=\"stop-color:#00FFA3\"/> <stop offset=\"1\" style=\"stop-color:#DC1FFF\"/> </linearGradient> <path class=\"st0\" d=\"M64.6,237.9c2.4-2.4,5.7-3.8,9.2-3.8h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,237.9z\"/> <linearGradient id=\"SVGID_2_\" gradientUnits=\"userSpaceOnUse\" x1=\"264.8291\" y1=\"401.6014\" x2=\"45.163\" y2=\"-19.1475\" gradientTransform=\"matrix(1 0 0 -1 0 314)\"> <stop offset=\"0\" style=\"stop-color:#00FFA3\"/> <stop offset=\"1\" style=\"stop-color:#DC1FFF\"/> </linearGradient> <path class=\"st1\" d=\"M64.6,3.8C67.1,1.4,70.4,0,73.8,0h317.4c5.8,0,8.7,7,4.6,11.1l-62.7,62.7c-2.4,2.4-5.7,3.8-9.2,3.8H6.5c-5.8,0-8.7-7-4.6-11.1L64.6,3.8z\"/> <linearGradient id=\"SVGID_3_\" gradientUnits=\"userSpaceOnUse\" x1=\"312.5484\" y1=\"376.688\" x2=\"92.8822\" y2=\"-44.061\" gradientTransform=\"matrix(1 0 0 -1 0 314)\"> <stop offset=\"0\" style=\"stop-color:#00FFA3\"/> <stop offset=\"1\" style=\"stop-color:#DC1FFF\"/> </linearGradient> <path class=\"st2\" d=\"M333.1,120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8,0-8.7,7-4.6,11.1l62.7,62.7c2.4,2.4,5.7,3.8,9.2,3.8h317.4c5.8,0,8.7-7,4.6-11.1L333.1,120.1z\"/> </svg>",
+    "appLink": "https://ranchimall.github.io/solanawallet",
+    "moreLink": "#/dapps/solanawallet",
+    "tags": [
+      "solana",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "2c8c1a065fcba4f9352317e6718d6364f354ed96eb77af9d4c092a6e523060e6",
+    "appHash": "f039f5f90ad64c24c7c4b8bcc691bf405912994ff086ce5b3555222c65f33284",
+    "automatedChecking": true
+  },
+  {
+    "name": "BSC Wallet",
+    "description": "Binance Chain Wallet linked with FLO Wallet",
+    "icon": "<svg class=\"icon\" width=\"128\" height=\"128\" viewBox=\"0 0 2496 2496\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <g> <path style=\"fill-rule:evenodd;clip-rule:evenodd;fill:#F0B90B;\" d=\"M1248,0c689.3,0,1248,558.7,1248,1248s-558.7,1248-1248,1248S0,1937.3,0,1248S558.7,0,1248,0L1248,0z\"/> <path style=\"fill:#FFFFFF;\" d=\"M685.9,1248l0.9,330l280.4,165v193.2l-444.5-260.7v-524L685.9,1248L685.9,1248z M685.9,918v192.3l-163.3-96.6V821.4l163.3-96.6l164.1,96.6L685.9,918L685.9,918z M1084.3,821.4l163.3-96.6l164.1,96.6L1247.6,918L1084.3,821.4L1084.3,821.4z\"/> <path style=\"fill:#FFFFFF;\" d=\"M803.9,1509.6v-193.2l163.3,96.6v192.3L803.9,1509.6L803.9,1509.6z M1084.3,1812.2l163.3,96.6l164.1-96.6v192.3l-164.1,96.6l-163.3-96.6V1812.2L1084.3,1812.2z M1645.9,821.4l163.3-96.6l164.1,96.6v192.3l-164.1,96.6V918L1645.9,821.4L1645.9,821.4L1645.9,821.4z M1809.2,1578l0.9-330l163.3-96.6v524l-444.5,260.7v-193.2L1809.2,1578L1809.2,1578L1809.2,1578z\"/> <polygon style=\"fill:#FFFFFF;\" points=\"1692.1,1509.6 1528.8,1605.3 1528.8,1413 1692.1,1316.4 1692.1,1509.6 	\"/> <path style=\"fill:#FFFFFF;\" d=\"M1692.1,986.4l0.9,193.2l-281.2,165v330.8l-163.3,95.7l-163.3-95.7v-330.8l-281.2-165V986.4L968,889.8l279.5,165.8l281.2-165.8l164.1,96.6H1692.1L1692.1,986.4z M803.9,656.5l443.7-261.6l444.5,261.6l-163.3,96.6l-281.2-165.8L967.2,753.1L803.9,656.5L803.9,656.5z\"/> </g> </svg>",
+    "appLink": "https://ranchimall.github.io/bscwallet",
+    "moreLink": "#/dapps/bscwallet",
+    "tags": [
+      "bsc",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "2c8c1a065fcba4f9352317e6718d6364f354ed96eb77af9d4c092a6e523060e6",
+    "appHash": "f039f5f90ad64c24c7c4b8bcc691bf405912994ff086ce5b3555222c65f33284",
+    "automatedChecking": true
+  },
+  {
+    "name": "Matic Wallet",
+    "description": "FLO Address linked MATIC/Polygon Address Web Wallet",
+    "icon": "<svg class=\"icon\" width=\"128\" height=\"128\" viewBox=\"0 0 178 161\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M66.8 54.7l-16.7-9.7L0 74.1v58l50.1 29l50.1-29V41.9L128 25.8l27.8 16.1v32.2L128 90.2l-16.7-9.7v25.8 l16.7 9.7l50.1-29V29L128 0L77.9 29v90.2l-27.8 16.1l-27.8-16.1V86.9l27.8-16.1l16.7 9.7V54.7z\" fill=\"#6600FF\"></path> </svg>",
+    "appLink": "https://ranchimall.github.io/maticwallet",
+    "moreLink": "#/dapps/maticwallet",
+    "tags": [
+      "matic",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "2c8c1a065fcba4f9352317e6718d6364f354ed96eb77af9d4c092a6e523060e6",
+    "appHash": "f039f5f90ad64c24c7c4b8bcc691bf405912994ff086ce5b3555222c65f33284",
+    "automatedChecking": true
   }
 ]
