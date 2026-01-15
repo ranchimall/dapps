@@ -14,7 +14,7 @@ dappsList = [
     "allowDownload": false,
     "repoHash": "bafa95f5974ea773e16f625fc2132f3b824c6cae3d4e323afb83e5b6a0979cbd",
     "repoLink": "https://github.com/ranchimall/blockbook",
-    "appHash": "94f8339d1ee1fd85221eb2a161dae634b1051caff5e631a60271c0714fa52bab"
+    "appHash": "ee9908548c2acb5ba0bf18af80ed1679a0ea7ddf35a4745ea58943369984d78d"
   },
   {
     "name": "Blockchain Bonds",
@@ -28,8 +28,8 @@ dappsList = [
       "blockchain"
     ],
     "category": "finance",
-    "repoHash": "7250f70ac910600ab2b1c77cc13e829aac22c032f0da1f1686e680f48f85fb0a",
-    "appHash": "c39b67048688a98bd37ac0e99b75f3cefa697a8e47aa3d60b7d0b76fd2241df1"
+    "repoHash": "c73889aefe0cba3d49dd6b689725a1bb3a1a93b8b65bee5936774fef938b8797",
+    "appHash": "b1d8dd37ad8bede925afc326626bae54b6ebb443e6021cc49ca8cad798aa1b60"
   },
   {
     "name": "Bob's Fund",
@@ -43,8 +43,8 @@ dappsList = [
       "bitcoin"
     ],
     "category": "finance",
-    "repoHash": "232846d9000726c0ff00ee66f453e44c4a246c2e532f16194c69267aa4a5e3ec",
-    "appHash": "8336a2369401fdde6285f3a10dffe1e548be21b85872cd6f0d208a4653ad1d6c"
+    "repoHash": "d2b2364ca2e3e6a541ea83f0641399cf3ce7b9966bf65895b230ecf809dc2631",
+    "appHash": "edc0d07f265aadd8298391ec8a3fd3d878c9dfa309a024a190e64a24caec155c"
   },
   {
     "name": "BTC Mortgage",
@@ -60,7 +60,7 @@ dappsList = [
     ],
     "category": "finance",
     "repoHash": "c606e37d2ab869d3c15f6b44711c07cefffa965692c91309652872812164fc85",
-    "appHash": "9f48678c03bc4edf41f268e3927c84a6784d1c226a57298c8c00217d92e44b6e"
+    "appHash": "daace60c0944fdf5addddd538a5dcbf2dcc713c1aec99174f170cdebd76443cf"
   },
   {
     "name": "BTC Wallet",
@@ -74,7 +74,7 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "f27faf88356af022394fab791832a5a86e55db01df0da56cbbe26e5a2d742409",
-    "appHash": "0aa3d600d1eec90732517e0522c5c49ba35a2cc11ccd9ceda0019f42e7b85c0c"
+    "appHash": "96d39b5f1e73620763c220e1db153aca4be158897b065d03eb936f1dcdc7b0fe"
   },
   {
     "name": "Certify",
@@ -88,8 +88,8 @@ dappsList = [
       "certification"
     ],
     "category": "identity",
-    "repoHash": "7597594c4da4419291ef3800e076d13946fbef8e66641e1d491751dab438e602",
-    "appHash": "da313ab7dfb9cda4883fe5c7df6a56241be2d9573b92fb6d40210984b4be9e44"
+    "repoHash": "503c1be986f0af914a7bddc2ce2e35850202b06924c17d977fab17fbbecedee2",
+    "appHash": "2b52ec2bc83310fb4d10141e213f80f5f87538b0b17228ad961783fa550f69aa"
   },
   {
     "name": "Content Collaboration",
@@ -103,8 +103,8 @@ dappsList = [
       "content"
     ],
     "category": "content",
-    "repoHash": "d959e8a6807fcc61745ecfdd09d67e875f0d68376c344148010fb117677ea563",
-    "appHash": "d25de75cb269aea0364315f3bf01ec353bacf4f21394a997711831235d3670c5"
+    "repoHash": "80fc6c43fa1ec9ca0fd3ce2df15f17ee3984667eae4a6c40e2c7c490ba095b7d",
+    "appHash": "fc0c3ee0eb8d2ddd8601b55f87b3527e0d43e0974de713c3aa542e71a21e2e2b"
   },
   {
     "name": "Exchange",
@@ -119,8 +119,8 @@ dappsList = [
       "rupee"
     ],
     "category": "finance",
-    "repoHash": "e9931ea21196ed5b36d90938e065cc3298646e92d8c4ddac9c82f768103c3c05",
-    "appHash": "91108a0817e1efe3ee8939dbf19c7c3fe21adbf612b3a78e8c75278c237bbea7"
+    "repoHash": "986fa647859df511f63750aa7cada17590c6115ce9d8f551e00cd95ab3be1d2d",
+    "appHash": "a413fb92008ca01b0ea5999668310b932132426bf171b98f93afb4cd460db80e"
   },
   {
     "name": "FLO Ethereum",
@@ -134,8 +134,8 @@ dappsList = [
       "flo"
     ],
     "category": "wallet",
-    "repoHash": "db699b68fce657a4ef9c56e2d2dcebe850056401dda971d96d6a595583d91510",
-    "appHash": "e99fbfa41825d052f7dc043b7e3a678ef57484cc619bf06b672f780780325f21"
+    "repoHash": "f6e1c020c06568bc91c537f93efe2b0bd6e70566b66b2a80861cdcc192285cf2",
+    "appHash": "1892623d23979af99e484d868d8e9cd38badf84b6d0c0ec715bc34f53b2dd4e6"
   },
   {
     "name": "FLO Scout",
@@ -149,8 +149,8 @@ dappsList = [
       "smart contracts"
     ],
     "category": "blockchain-explorer",
-    "repoHash": "97cac6e0c06e701ea535222f830bbac7904a82ad782e21e9888ee4a6148d3aaa",
-    "appHash": "98c76d72685e4781a91ef9c003e20024920b04722efba561a0eb89530e45600f"
+    "repoHash": "2b3627f0960baf07bf20262eb6e4347597c8a525a02f2c6ff8c5b01e5998d1fe",
+    "appHash": "70b1d069151bf7a10fa916e5d9630d6d9e775b7a1d870ffc502c504728c362a6"
   },
   {
     "name": "FLO Wallet",
@@ -163,8 +163,8 @@ dappsList = [
       "wallet"
     ],
     "category": "wallet",
-    "repoHash": "29517bf2de6b1d2aac3f0c0dd3db1cc82705e67e1725b2a411f686328a9770a3",
-    "appHash": "556eb13671117d0f86b63d542b8b148ab7136eacf597f3209436129d39d00ca4"
+    "repoHash": "803c954a63dbf8811239a266163c459a21ec0e751059c64d942a78f4d9861fd2",
+    "appHash": "2abe396445d7f97110242c5b128910022604b52971ebb05df1f9981d4977c2c4"
   },
   {
     "name": "FLOpay",
@@ -178,8 +178,8 @@ dappsList = [
       "rupee"
     ],
     "category": "wallet",
-    "repoHash": "51353267fffbcbeb1a8f10e254ccfd1079bb6921614367f09093c2f914ea1b30",
-    "appHash": "75fcddab933278727dfc8f301b106b9fe31bb4a0d5f118a474d3e48136c81ba5"
+    "repoHash": "95efe1384933dd9cfd2610a61bd8adbc2758fad6a369fdac8852c207fa4650bf",
+    "appHash": "3baf4473fb843767c2b7658175892ed0c7fe1833c72355fd580c86ac4cbcc6ca"
   },
   {
     "name": "ICO Exchange",
@@ -196,9 +196,9 @@ dappsList = [
     ],
     "category": "finance",
     "allowDownload": false,
-    "repoHash": "bcd943193b9a76991e8d1ebd4bd88a30ece97f69efe80c37f3c5a733c76a2b6b",
+    "repoHash": "a51112077a8bc2f2cad008fc2f7d8ff9ef2433f8eb9774d573680a2fefb066bf",
     "repoLink": "https://github.com/ranchimall/flo-exchange",
-    "appHash": "ec16bbd8985c1d310a6b92361d611099edc4851a573c5f20d55dc517ca0898bc"
+    "appHash": "3d6799835ad6ea331c1f8260d1732376f8cbc4271ea51cb1fc78ed5f1a887b75"
   },
   {
     "name": "Intern payments",
@@ -212,8 +212,8 @@ dappsList = [
       "ribc"
     ],
     "category": "finance",
-    "repoHash": "c1cd5fc3546a2ef76a74435ec9fc4db99e91e03a9948a96ee8dabada94c8a7b2",
-    "appHash": "1dad048b1ea341f6a24bbd33a4b97b638d257a0d24c42df3512dc1725d175108"
+    "repoHash": "d3dbb90f68791291340cc8b516bebfbe60a6f11fafa3ff096d1424d609580523",
+    "appHash": "8916eaa4b6f4fce3e6731290813493a9a6e4f2e74031dcb21ad3d8f78bbb286c"
   },
   {
     "name": "KYC",
@@ -226,8 +226,8 @@ dappsList = [
       "identity"
     ],
     "category": "identity",
-    "repoHash": "1f7b34d905149195534f84f017e67375842197d247ba93267243b47502c04ccc",
-    "appHash": "be9955c13151b23e6c5c5e7a55ee548e4653b83a67dfb664724f77cb3de92249"
+    "repoHash": "59aa25099579b732fc4c7ce3dfaeeca4646f60585e3ab7fd09224ec3a31c9148",
+    "appHash": "9063d964a9de121c6f627c0c7288d24b33955f6ab257c81a984869e5f57116ec"
   },
   {
     "name": "LogSheet",
@@ -242,7 +242,7 @@ dappsList = [
     ],
     "category": "content",
     "repoHash": "41d0fa586701ff309c60c3b6ce861a466a704577df1e505dbd4f92f08a9ebbfe",
-    "appHash": "8c61881fb55422565ad542fde8691fcc26b8bb26c6b8d8d459484c312ce4721f"
+    "appHash": "54120cab74f861f47661dd213d45b9ce98d213df94589d7bc48cee360e9be5b4"
   },
   {
     "name": "Messenger",
@@ -260,7 +260,7 @@ dappsList = [
     ],
     "category": "social",
     "repoHash": "ee9ac48001e889e767def959f07d767545058ab4e5372ee0441bb006503809e5",
-    "appHash": "58c1ccbd44d978c2fedcbc926d867be09ce093c0edb565c8cd363407ab1d4d05"
+    "appHash": "ca7a936ae11269c347632f55c4f953b0f23e583921cfd0ec28f21169d91d3f16"
   },
   {
     "name": "RanchiMall Times",
@@ -275,7 +275,7 @@ dappsList = [
     ],
     "category": "content",
     "repoHash": "ebb8ed672eb4081c83e37000ca51c3b9e92701a51495c59ce1893568fbc7513b",
-    "appHash": "42d326990c5701de8ca47b2693bdfb7a45fb59945825501ebd4a6daf86a6802d"
+    "appHash": "69795817ac0802393cd91877424929ae6237425f4d5d57cb5c6dff5d7c81ad5a"
   },
   {
     "name": "RIBC",
@@ -289,8 +289,8 @@ dappsList = [
       "ribc"
     ],
     "category": "management",
-    "repoHash": "907c2a7af640722e48146e8b9ff7d5415321f0d3cfffe5761091f8498ad9d879",
-    "appHash": "3c5e29172d60659f9822b8b90d4dffc8cd8dbeb6110d4da4026d176efbed38ea"
+    "repoHash": "847ef630c0a2af5ae1fd17a6561073f4c16b421a216b3baa0341057d2e6c19f3",
+    "appHash": "186005e24a312e8cdd9b51fde1894f40a23532a95836f4cb8b1aa1650fe8ccf2"
   },
   {
     "name": "Taproot wallet",
@@ -305,7 +305,231 @@ dappsList = [
     ],
     "category": "wallet",
     "repoHash": "2c8c1a065fcba4f9352317e6718d6364f354ed96eb77af9d4c092a6e523060e6",
-    "appHash": "f039f5f90ad64c24c7c4b8bcc691bf405912994ff086ce5b3555222c65f33284",
+    "appHash": "561652d02048810afa716b3a79d154aa40cc457701accfdd2d737e84368f3ae8",
     "automatedChecking": true
+  },
+  {
+    "name": "Algorand Wallet",
+    "description": "Web wallet for Algorand blockchain",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/algo.svg",
+    "appLink": "https://ranchimall.github.io/algorandwallet",
+    "moreLink": "#/dapps/algorand-wallet",
+    "tags": [
+      "algorand",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "6a1e3e8387d5a104167dd5a2700ca8a402b28495689070ebe474d37879e40006",
+    "appHash": "79ca25431e8f3cd2c4818fd0a8dfb41390ae4f87af1150d7f875d7cc699fe666"
+  },
+  {
+    "name": "Polkadot Wallet",
+    "description": "FLO / BTC linked Polkadot web wallet",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/dot.svg",
+    "appLink": "https://ranchimall.github.io/polkadotwallet",
+    "moreLink": "#/dapps/polkadot-wallet",
+    "tags": [
+      "polkadot",
+      "wallet",
+      "dot"
+    ],
+    "category": "wallet",
+    "repoHash": "63bcf4c6c6b4bca01d9ca56ecd44136879c7a1c424b1a83d5f370fa2449b94f9",
+    "appHash": "8fa2b5b30b9c4a0544734eeb6804139f58e2c25e001a597bcb80b67c167b249a"
+  },
+  {
+    "name": "Dogecoin Wallet",
+    "description": "Web wallet for Dogecoin",
+    "icon": "https://cdn.brandfetch.io/ido9DnvZbc/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1667675986682",
+    "appLink": "https://ranchimall.github.io/dogewallet",
+    "moreLink": "#/dapps/doge-wallet",
+    "tags": [
+      "dogecoin",
+      "wallet",
+      "doge"
+    ],
+    "category": "wallet",
+    "repoHash": "7bc6884e1a07fdfc791036867e49aa508e3935fb391eaff0b715c5ef97e661e2",
+    "appHash": "3443e6c2a3b70c76a5e692bbf81c85325f3c1b025023cc9bb74d98c278c95fa2"
+  },
+  {
+    "name": "Tron Wallet",
+    "description": "Web wallet for Tron blockchain",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/trx.svg",
+    "appLink": "https://ranchimall.github.io/tronwallet",
+    "moreLink": "#/dapps/tron-wallet",
+    "tags": [
+      "tron",
+      "wallet",
+      "trx"
+    ],
+    "category": "wallet",
+    "repoHash": "162b6054ce5dcca9101850fe5d27c0d64f1d34682f64f36714a7d8d879125c2f",
+    "appHash": "5df447ec65461fa8ac74b60a8cb2f51e50645f584766fcfc389c3a4545245fc8"
+  },
+  {
+    "name": "Avalanche Wallet",
+    "description": "Web wallet for Avalanche C-Chain",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/avax.svg",
+    "appLink": "https://ranchimall.github.io/avaxwallet",
+    "moreLink": "#/dapps/avalanche-wallet",
+    "tags": [
+      "avalanche",
+      "wallet",
+      "avax"
+    ],
+    "category": "wallet",
+    "repoHash": "f021f4dd3ecd23ce95081e0642a7f58b151b28f7e8be02afbe74dd9cc8687db7",
+    "appHash": "337e8efe171b23d6a93a87c4c6e2e10be770d778c575b9111128e13a7098397a"
+  },
+  {
+    "name": "BSC Wallet",
+    "description": "Binance Smart Chain Wallet linked with FLO",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/bnb.svg",
+    "appLink": "https://ranchimall.github.io/bscwallet",
+    "moreLink": "#/dapps/bsc-wallet",
+    "tags": [
+      "binance",
+      "bsc",
+      "wallet",
+      "bnb"
+    ],
+    "category": "wallet",
+    "repoHash": "f82cc4e377ab29520d52cf02aa4f8fa57182afdd7c5bffc4152930842a2ee7cd",
+    "appHash": "df8f65ecbbdf2b208633b065ff9f906f27c6410e9db312bc08b15c3d84ba6baf"
+  },
+  {
+    "name": "Solana Wallet",
+    "description": "Solana Web Wallet linked with FLO and Bitcoin address",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/sol.svg",
+    "appLink": "https://ranchimall.github.io/solanawallet",
+    "moreLink": "#/dapps/solana-wallet",
+    "tags": [
+      "solana",
+      "wallet",
+      "sol"
+    ],
+    "category": "wallet",
+    "repoHash": "786ce066376f5c07df482d9a200ec9d485d9d68b63956609ff904e4e97861999",
+    "appHash": "39af6669ad9108987bad18e2ad4a20fce696bc183f390e20aac8b2e78c5e734d"
+  },
+  {
+    "name": "XRP Wallet",
+    "description": "Web wallet for XRP Ledger",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/xrp.svg",
+    "appLink": "https://ranchimall.github.io/xrpwallet",
+    "moreLink": "#/dapps/xrp-wallet",
+    "tags": [
+      "xrp",
+      "ripple",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "2aa09c5952bafae0546d5200be220bf9ed8486dc2ef5e7c9c376c0dd84b0b539",
+    "appHash": "17adf700f0253e981230e9ffbce4ca59a20f90c11d35c10aed0fbe15ca1ca2aa"
+  },
+  {
+    "name": "Litecoin Wallet",
+    "description": "Web wallet for Litecoin",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/ltc.svg",
+    "appLink": "https://ranchimall.github.io/litecoinwallet",
+    "moreLink": "#/dapps/litecoin-wallet",
+    "tags": [
+      "litecoin",
+      "wallet",
+      "ltc"
+    ],
+    "category": "wallet",
+    "repoHash": "22550ba0b66e7ebbeb6b89edfae6c2cf21c1ea11f5606013b2abd1ae42328967",
+    "appHash": "ab16948a8859f1980b1f094f919955e59a34e7b7926ac2038363d666e3447d4a"
+  },
+  {
+    "name": "TON Wallet",
+    "description": "Web wallet for The Open Network",
+    "icon": "https://cdn.brandfetch.io/id20SzFgBn/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1768403625727",
+    "appLink": "https://ranchimall.github.io/tonwallet",
+    "moreLink": "#/dapps/ton-wallet",
+    "tags": [
+      "ton",
+      "wallet",
+      "telegram"
+    ],
+    "category": "wallet",
+    "repoHash": "14a44d57c8f9a6e270fe287a2b9e3bd59a419015eff9ad53415858cfc2e740f1",
+    "appHash": "90ed1cf5aefd7a37da7027c6a6074183ee392cbecf9a946c17ffebe386af62c6"
+  },
+  {
+    "name": "Sui Wallet",
+    "description": "Web wallet for Sui blockchain",
+    "icon": "https://cdn.brandfetch.io/idBUiFFswD/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1768403619011",
+    "appLink": "https://ranchimall.github.io/suiwallet",
+    "moreLink": "#/dapps/sui-wallet",
+    "tags": [
+      "sui",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "c082c72e0427a15878b520e0fd9b9d14dbd8e48a7b82db9db3fecc8d9cf46f3e",
+    "appHash": "9715297b6b009517b1850dd90e7261c8942041ac17d7a7b193deb289f74f910a"
+  },
+  {
+    "name": "Cardano Wallet",
+    "description": "Web wallet for Cardano blockchain",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/ada.svg",
+    "appLink": "https://ranchimall.github.io/cardanowallet",
+    "moreLink": "#/dapps/cardano-wallet",
+    "tags": [
+      "cardano",
+      "wallet",
+      "ada"
+    ],
+    "category": "wallet",
+    "repoHash": "17c0ebbe78b9652ba4bde5f4848ba1214ed1c947f732c5b71e537b14f893d2b0",
+    "appHash": "87a5b06308de687fcd46a868a1a304b8dd88e29ca60de35d03120b47d869b903"
+  },
+  {
+    "name": "Hedera Wallet",
+    "description": "Web wallet for Hedera Hashgraph",
+    "icon": "https://cdn.brandfetch.io/idLW1qysq-/w/396/h/396/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1760499617707",
+    "appLink": "https://ranchimall.github.io/hederawallet",
+    "moreLink": "#/dapps/hedera-wallet",
+    "tags": [
+      "hedera",
+      "wallet",
+      "hbar"
+    ],
+    "category": "wallet",
+    "repoHash": "c43b2b2ab31af01c684d211018123c95bc0cbe6e940a24e0a43f044895c0d7cd",
+    "appHash": "f1cda1c39e8ab653af3d67d63b7c9e88eebb9af0ef305436aaf418d2b813bf00"
+  },
+  {
+    "name": "Stellar Wallet",
+    "description": "Web wallet for Stellar Lumens",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/xlm.svg",
+    "appLink": "https://ranchimall.github.io/stellarwallet",
+    "moreLink": "#/dapps/stellar-wallet",
+    "tags": [
+      "stellar",
+      "wallet",
+      "xlm"
+    ],
+    "category": "wallet",
+    "repoHash": "8a79287c1146e8ab22e55121750ee31f834237a203424ef2fd03e1759d6602cf",
+    "appHash": "728c125ca15e5917ed960663c4a8b7c73e1c75133fccb5146fdb7b1730a3b68d"
+  },
+  {
+    "name": "Matic Wallet",
+    "description": "FLO Address linked MATIC/Polygon Address Web Wallet",
+    "icon": "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/svg/color/matic.svg",
+    "appLink": "https://ranchimall.github.io/maticwallet",
+    "moreLink": "#/dapps/matic-wallet",
+    "tags": [
+      "matic",
+      "polygon",
+      "wallet"
+    ],
+    "category": "wallet",
+    "repoHash": "694e60a3f71cb33de02604847caeb4688f5a567582a538b76d76f472e8531624",
+    "appHash": "b54fe65dd5e52b793c2e49f3ca9850b595acd5e124d23d3fa6588debea71d855"
   }
 ]
