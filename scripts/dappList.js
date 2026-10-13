@@ -410,7 +410,7 @@ dappsList = [
       "sol"
     ],
     "category": "wallet",
-    "repoHash": "39db5534ac294c15c5c996d4612da58f6f4ae46b05b476aa2d2e3cba3f40e222",
+    "repoHash": "21eda3a4458fb853be799f11423c967c84ab1eed5186278a5a0b79c8dec72b7e",
     "appHash": "ff9ba9e18da9365bb9b8837c46f6db8edd706bd7aea0b53c74bdaf81a537548f"
   },
   {
